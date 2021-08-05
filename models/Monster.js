@@ -33,15 +33,15 @@ Monster.init(
     },
     move_two: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     move_three: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     move_four: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     sprite: {
       type: DataTypes.STRING,
