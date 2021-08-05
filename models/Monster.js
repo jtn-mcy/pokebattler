@@ -31,6 +31,10 @@ Monster.init(
       type: DataTypes.ARRAY,
       allowNull: false,
     },
+    sprite: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
     level_id: {
       type: DataTypes.INTEGER,
       references: {

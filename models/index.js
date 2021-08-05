@@ -12,7 +12,7 @@ User.hasMany(Game, {
     foreignKey: 'user_id',
 });
 
-Pokemon.hasMany(User, {
+Pokemon.belongsTo(User, {
     foreignKey: 'user_id',
 });
 
@@ -24,12 +24,12 @@ Monster.belongsTo(Level, {
     foreignKey: 'level_id',
 });
 
-Game.belongsTo(User, {
-    foreignKey: 'user_id',
+Level.belongsTo(Game, {
+    foreignKey: 'game_id',
 });
 
-Monster.BelongsToMany(Game, {
-    //foreignKey: '_id',
+Game.belongsTo(User, {
+    foreignKey: 'user_id',
 });
 
 module.exports = { User, Game, Level, Monster, Pokemon };
