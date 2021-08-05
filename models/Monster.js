@@ -27,9 +27,21 @@ Monster.init(
       type: DataTypes.BOOLEAN,
       allowNull: false,
     },
-    moveset: {
-      type: DataTypes.ARRAY,
+    move_one: {
+      type: DataTypes.STRING,
       allowNull: false,
+    },
+    move_two: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    move_three: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    },
+    move_four: {
+      type: DataTypes.STRING,
+      allowNull: true,
     },
     sprite: {
       type: DataTypes.STRING,
