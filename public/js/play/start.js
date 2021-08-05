@@ -8,6 +8,8 @@ const addCharmander = async () => {
             name: charmander[0],
             description: charmander[1],
             hitpoints: charmander[2],
+            move_one: charmander[3],
+            sprite: charmander[4]
         }),
         headers: { 'Content-Type': 'application/json' },
     });
@@ -27,6 +29,8 @@ const addSquirtle = async () => {
             name: squirtle[0],
             description: squirtle[1],
             hitpoints: squirtle[2],
+            move_one: squirtle[3],
+            sprite: squirtle[4]
         }),
         headers: { 'Content-Type': 'application/json' },
     });
@@ -46,6 +50,8 @@ const addBulbasaur = async () => {
             name: bulbasaur[0],
             description: bulbasaur[1],
             hitpoints: bulbasaur[2],
+            move_one: bulbasaur[3],
+            sprite: bulbasaur[4]
         }),
         headers: { 'Content-Type': 'application/json' },
     });
@@ -60,21 +66,28 @@ const addBulbasaur = async () => {
 
 //base hp of pokemon are different
 let charmander = [
-    'Charmander',
-    'A fire-type pokemon from Generation I',
+    'Charmander', //name
+    'A fire-type pokemon from Generation I', //description
     Math.floor(Math.random() * 20 + 40), //randomize starting hp
+    ['tackle'], //move_one
+    'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png' //sprite
 ];
 
 let squirtle = [
-    'Squirtle',
-    'A water-type pokemon from Generation I',
+    'Squirtle', //name
+    'A water-type pokemon from Generation I', //description
     Math.floor(Math.random() * 20 + 55), //randomize starting hp
+    ['tackle'], //move_one
+    'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/7.png'
+
 ];
 
 let bulbasaur = [
-    'bulbasaur',
-    'A grass/poison-type pokemon from Generation I',
+    'Bulbasaur', //name
+    'A grass/poison-type pokemon from Generation I', //descr
     Math.floor(Math.random() * 20 + 50), //randomize starting hp
+    ['tackle'], //move_one
+    'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png' //sprite
 ]
 
 // const checkInProgress = async () => {
