@@ -6,10 +6,14 @@ router.get('/', async (req, res) => {
   try {
     const userData = await User.findAll();
 
-    res.render('login', {
-      userData,
-      loggedIn: req.session.loggedIn,
-    });
+    // testing the route
+    res.json(userData);
+
+    // For sending userData to login.handlebars
+    // res.render('login', {
+    //   userData,
+    //   loggedIn: req.session.loggedIn,
+    // });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
@@ -17,11 +21,15 @@ router.get('/', async (req, res) => {
 });
 
 // GET one user
-router.get('/user/:id', async (req, res) => {
+router.get('/:id', async (req, res) => {
   try {
     const userData = await User.findByPk(req.params.id);
 
-    res.render('login', { userData, loggedIn: req.session.loggedIn });
+    // testing the route
+    res.json(userData);
+
+    // For sending userData to login.handlebars
+    // res.render('login', { userData, loggedIn: req.session.loggedIn });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
@@ -39,10 +47,14 @@ router.post('/', async (req, res) => {
       avatar: req.body.avatar,
     });
 
-    req.session.save(() => {
-      req.session.loggedIn = true;
-      res.status(200).json(dbUserData);
-    });
+    // For testing
+    res.json(dbUserData);
+
+    // For when working with cookies
+    // req.session.save(() => {
+    //   req.session.loggedIn = true;
+    //   res.status(200).json(dbUserData);
+    // });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
@@ -75,13 +87,14 @@ router.post('/login', async (req, res) => {
       return;
     }
 
-    req.session.save(() => {
-      req.session.loggedIn = true;
+    // For when working with cookies
+    // req.session.save(() => {
+    //   req.session.loggedIn = true;
 
-      res
-        .status(200)
-        .json({ user: dbUserData, message: 'You are now logged in!' });
-    });
+    //   res
+    //     .status(200)
+    //     .json({ user: dbUserData, message: 'You are now logged in!' });
+    // });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
@@ -100,7 +113,7 @@ router.post('/logout', (req, res) => {
   }
 });
 
-router.delete('/user/:id', async (req, res) => {
+router.delete('/:id', async (req, res) => {
   try {
     const userData = await User.destroy({
       where: {
@@ -108,11 +121,15 @@ router.delete('/user/:id', async (req, res) => {
       },
     });
 
-    if (req.session.loggedIn) {
-      req.session.destroy(() => {
-        res.status(204).end();
-      });
-    }
+    // For testing
+    res.json(userData);
+
+    // For when working with cookies
+    // if (req.session.loggedIn) {
+    //   req.session.destroy(() => {
+    //     res.status(204).end();
+    //   });
+    // }
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
