@@ -1,4 +1,5 @@
-const { response } = require("express");
+//User will choose a pokemon to start off with
+//Once chosen, a new pokemon will be posted into the pokemon database using the user's req.session.id
 
 const addCharmander = async () => {
     await fetch ('/api/pokemons', {
