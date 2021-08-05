@@ -1,0 +1,9 @@
+<div row="d-flex justify-content-around">
+    {{#each pokemons as |pokemon|}}
+    {{>creature-details}}
+    {{/each}}
+    {{#each monster as |monster|}}
+    {{>creature-details}}
+    {{/each}}
+</div>
+<script {{!-- TODO: add script for pokedex.js--}}></script>

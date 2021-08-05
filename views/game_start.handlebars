@@ -1,0 +1,36 @@
+{{!-- IF NO GAME IN PROGRESS --}}
+{{#unless game.inProgress}}
+<div class="row d-flex flex-column">
+    <div class='col-2 container-fluid d-flex justify-content-center text-nowrap'>
+        <h3>Select a starter pokemon!</h3>
+    </div>
+    <div class='col-10 container-fluid'>
+        <div class="row d-flex flex-row justify-content-around">
+            <div class="card" style="width: 16rem;">
+                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/4.png" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <p class="card-text">Stats:</p> {{!-- add some stats here --}}
+                <a href="#" class="btn btn-primary" id="charmander">Pick Charmander!</a>
+                </div>
+            </div>
+                <div class="card" style="width: 16rem;">
+                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/7.png" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <p class="card-text">Stats:</p> {{!-- add some stats here --}}
+                <a href="#" class="btn btn-primary" id="squirtle">Pick Squirtle!</a>
+                </div>
+            </div>
+                <div class="card" style="width: 16rem;">
+                <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <p class="card-text">Stats:</p> {{!-- add some stats here --}}
+                <a href="#" class="btn btn-primary" id="bulbasaur">Pick Bulbasaur!</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script {{!-- TODO: add script for starter.js--}}></script>
+{{else}}
+{{!-- Script to go to game_play/game_post screen--}}
+{{/unless}}
