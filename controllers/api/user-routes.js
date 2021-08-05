@@ -1,7 +1,35 @@
 const router = require('express').Router();
 const { User } = require('../../models');
 
+// GET all users for login.handlebars page
+router.get('/', async (req, res) => {
+  try {
+    const userData = await User.findAll();
+
+    res.render('login', {
+      userData,
+      loggedIn: req.session.loggedIn,
+    });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
+// GET one user
+router.get('/user/:id', async (req, res) => {
+  try {
+    const userData = await User.findByPk(req.params.id);
+
+    res.render('login', { userData, loggedIn: req.session.loggedIn });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
 // CREATE new user
+// Signup
 router.post('/', async (req, res) => {
   try {
     const dbUserData = await User.create({
@@ -13,7 +41,6 @@ router.post('/', async (req, res) => {
 
     req.session.save(() => {
       req.session.loggedIn = true;
-
       res.status(200).json(dbUserData);
     });
   } catch (err) {
@@ -70,6 +97,25 @@ router.post('/logout', (req, res) => {
     });
   } else {
     res.status(404).end();
+  }
+});
+
+router.delete('/user/:id', async (req, res) => {
+  try {
+    const userData = await User.destroy({
+      where: {
+        id: req.params.id,
+      },
+    });
+
+    if (req.session.loggedIn) {
+      req.session.destroy(() => {
+        res.status(204).end();
+      });
+    }
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
   }
 });
 
