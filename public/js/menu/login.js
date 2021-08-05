@@ -25,16 +25,24 @@ const signupFormHandler = async (event) => {
     const username = document.querySelector('#username-signup').value.trim();
     const password = document.querySelector('#password-signup').value.trim();
     const password2 = document.querySelector('#password-signup2').value.trim();
+    const gender = 'male';
+    let avatar;
+    if (gender === 'male') {
+        avatar = 'https://static.wikia.nocookie.net/pokemon/images/5/57/Red_FireRed_and_LeafGreen.png'
+    } else {
+        avatar = 'https://static.wikia.nocookie.net/pokemon/images/0/01/Green_FireRed_and_LeafGreen.png'
+    }
+
 
     if (password !== password2) {
         alert('Passwords must match');
         return;
     };
 
-    if (username && password && password2) {
+    if (username && password && password2 && gender && avatar) {
         const response = await fetch ('/api/users', {
             method: 'POST',
-            body: JSON.stringify({ username, password }),
+            body: JSON.stringify({ username, password, gender, avatar }),
             headers: { 'Content-Type': 'application/json'}
         });
         
