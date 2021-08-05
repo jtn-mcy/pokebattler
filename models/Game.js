@@ -1,9 +1,9 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Pokemon extends Model {}
+class Game extends Model {}
 
-Pokemon.init(
+Game.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -11,28 +11,16 @@ Pokemon.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    name: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    description: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    hitpoints: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-    },
-    is_dead: {
+    current: {
       type: DataTypes.BOOLEAN,
       allowNull: false,
     },
-    moveset: {
-      type: DataTypes.ARRAY,
+    beat_game: {
+      type: DataTypes.BOOLEAN,
       allowNull: false,
     },
-    sprite: {
-      type: DataTypes.STRING,
+    score: {
+      type: DataTypes.INTEGER,
       allowNull: false,
     },
     user_id: {
@@ -47,8 +35,8 @@ Pokemon.init(
     sequelize,
     freezeTableName: true,
     underscored: true,
-    modelName: 'pokemon',
+    modelName: 'game',
   }
 );
 
-module.exports = Pokemon;
+module.exports = Game;
