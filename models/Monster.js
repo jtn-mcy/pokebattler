@@ -23,7 +23,7 @@ Monster.init(
       type: DataTypes.INTEGER,
       allowNull: false,
     },
-    isDead: {
+    is_dead: {
       type: DataTypes.BOOLEAN,
       allowNull: false,
     },

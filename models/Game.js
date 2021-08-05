@@ -15,7 +15,7 @@ Game.init(
       type: DataTypes.BOOLEAN,
       allowNull: false,
     },
-    beatGame: {
+    beat_game: {
       type: DataTypes.BOOLEAN,
       allowNull: false,
     },
