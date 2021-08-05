@@ -27,8 +27,20 @@ Pokemon.init(
       type: DataTypes.BOOLEAN,
       allowNull: false,
     },
-    moveset: {
-      type: DataTypes.ARRAY,
+    move_one: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    move_two: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    move_three: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    move_four: {
+      type: DataTypes.STRING,
       allowNull: false,
     },
     sprite: {
