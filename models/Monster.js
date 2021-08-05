@@ -31,6 +31,13 @@ Monster.init(
       type: DataTypes.ARRAY,
       allowNull: false,
     },
+    level_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'level',
+        key: 'id',
+      },
+    },
   },
   {
     sequelize,
