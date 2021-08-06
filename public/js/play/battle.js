@@ -6,7 +6,7 @@ const playerTakesDamage = async (event) => {
     let damage;
 
     let pokemonName = document.querySelector('#pokemon').getAttribute('data-p_name');
-    let pokemonHp = document.querySelector('#monsterHp').getAttribute('data-p_hp'); //get current pokemon hp
+    let pokemonHp = document.querySelector('#pokemonHp').getAttribute('data-p_hp'); //get current pokemon hp
     let pokemonId = document.querySelector('#pokemon').getAttribute('data-p_id'); //get pokemon id
 
     damage = Math.floor(Math.random()*11); //deals a range of 0-10 damage
