@@ -11,7 +11,7 @@ router.get('/', async (req, res) => {
         // },
         {
           model: Pokemon,
-          attributes: ['name'],
+          // attributes: ['name'],
         },
       ],
     });
