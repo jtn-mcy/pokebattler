@@ -1,5 +1,7 @@
 const path = require('path'); //guide express.static to public folder
 const express = require('express'); //express server
+const session = require('express-session'); //import express-session
+const exphbs = require('express-handlebars'); // import express-handlebars
 const routes = require('./controllers'); //import from controllers routes
 const sequelize = require('./config/connection'); //import connection to db
 // const exphbs = require('express-handlebars'); //if needed, to use with /utils
@@ -11,9 +13,10 @@ const SequelizeStore = require('connect-session-sequelize')(session.Store); //st
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-const sess = { //session
+const sess = {
+  //session
   secret: 'Super secret secret',
-  cookie: { maxAge: (1000*60*10) }, //cookie timer is 10 minutes (60000 ms)
+  cookie: { maxAge: 1000 * 60 * 10 }, //cookie timer is 10 minutes (60000 ms)
   resave: false,
   saveUninitialized: true,
   store: new SequelizeStore({
@@ -22,6 +25,8 @@ const sess = { //session
 };
 
 app.use(session(sess)); //middleware for sessions
+
+const hbs = exphbs.create();
 
 app.engine('handlebars', hbs.engine); //use handlebars
 app.set('view engine', 'handlebars'); //use handlebars

@@ -20,7 +20,7 @@ router.get('/', async (req, res) => {
 
     console.log(profiles);
     res.render('profile', {
-      profileData,
+      profiles,
     });
     // res.json(profileData);
   } catch (err) {
