@@ -5,7 +5,7 @@ const userdata = [
     username: 'user1',
     password: '12345678',
     gender: 'male',
-    avatar: 'avatar link',
+    avatar: 'https://static.wikia.nocookie.net/pokemon/images/5/57/Red_FireRed_and_LeafGreen.png',
   },
 ];
 
