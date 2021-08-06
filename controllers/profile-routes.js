@@ -16,11 +16,11 @@ router.get('/', async (req, res) => {
       ],
     });
 
-    const profiles = profileData.map((profile) => profile.get({ plain: true }));
+    const profile = profileData.map((profile) => profile.get({ plain: true }));
 
-    console.log(profiles);
+    console.log(profile);
     res.render('profile', {
-      profiles,
+      profile: profile,
     });
     // res.json(profileData);
   } catch (err) {

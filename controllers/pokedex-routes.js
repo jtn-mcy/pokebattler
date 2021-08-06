@@ -1,14 +1,17 @@
 const router = require('express').Router();
-const { Pokemon } = require('../models/Pokemon');
-const { Monster } = require('../models/Monster');
+const { Pokemon, Monster } = require('../models');
 
 // GET all pokemons for pokedex page
 router.get('/', async (req, res) => {
   try {
     const pokemonData = await Pokemon.findAll({});
 
+    const pokemons = pokemonData.map((pokemon) => pokemon.get({ plain: true }));
+
+    console.log(pokemons);
+
     res.render('pokedex', {
-      pokemonData,
+      pokemons: pokemons,
     });
   } catch (err) {
     console.log(err);
@@ -31,9 +34,13 @@ router.get('/:id', async (req, res) => {
 // GET all monsters for pokedex page
 router.get('/', async (req, res) => {
   try {
-    const monsterData = await Monster.findAll({});
+    const monsterData = await Monster.findAll();
 
-    res.render('pokedex', { monsterData });
+    const monsters = monsterData.map((monster) => monster.get({ plain: true }));
+
+    console.log(monsters);
+
+    res.render('pokedex', { monsters });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
@@ -51,3 +58,5 @@ router.get('/:id', async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+module.exports = router;

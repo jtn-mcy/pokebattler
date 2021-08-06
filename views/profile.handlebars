@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col-9" for="list of pokemon">
         <div class="row d-flex justify-content-evenly">"
-        {{#each profiles.[0].pokemons as |pokemon|}}
+        {{#each profile.[0].pokemons as |pokemon|}}
         {{>creature-details}} {{!-- Generate cards for each pokemon the user has--}}
         {{/each}}
         </div>
@@ -11,7 +11,7 @@
             <div class="card" style="width: 18rem;">
                 <img src="https://static.wikia.nocookie.net/pokemon/images/5/57/Red_FireRed_and_LeafGreen.png" {{!-- Change url based on gender of user --}} class="card-img-top" alt="trainer">
                 <div class="card-body">
-                    <h5 class="card-title">{{profiles.[0].username}}</h5>
+                    <h5 class="card-title">{{profile.[0].username}}</h5>
                     <p class="card-text">Some user stats</p>
                 </div>
             </div>
