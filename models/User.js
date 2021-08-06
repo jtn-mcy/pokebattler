@@ -15,8 +15,8 @@ User.init(
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
-        notEmpty: true, 
-        len: [3,20],
+        notEmpty: true,
+        len: [3, 20],
       },
     },
     password: {
@@ -25,7 +25,7 @@ User.init(
       validate: {
         isAlphanumeric: true,
         notEmpty: true,
-        len: [8,50],
+        len: [8, 50],
       },
     },
     gender: {
