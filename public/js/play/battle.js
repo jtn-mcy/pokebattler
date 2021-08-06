@@ -69,7 +69,7 @@ const playerDealsDmg = async (event) => {
     let monsterId = document.querySelector('#monster').getAttribute('data-m_id'); //get monster id
 
 
-    const move = document.querySelector('#move_one').getAttribute('data-p_move_one');
+    const move = document.querySelector('#p_move_one').getAttribute('data-p_move_one');
     if (moveList[move]) {
         damage = moveList[move].strength
     } else {
@@ -77,6 +77,7 @@ const playerDealsDmg = async (event) => {
         console.log(`couldn't find ${move}!`)};
     
     //update new monster hp
+    console.log('monsterHp: ', monsterHp, ' damage: ', damage, ' newMonsterHp: ', newMonsterHp)
     let newMonsterHp = monsterHp - damage;
     
     //Is monster dead?
@@ -139,4 +140,4 @@ if (monsterTurn) {
     playerTakesDamage()
 }
 
-document.querySelector('#move_one').addEventListener('click', playerDealsDmg)
+document.querySelector('#p_move_one').addEventListener('click', playerDealsDmg)

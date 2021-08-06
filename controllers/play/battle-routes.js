@@ -28,9 +28,13 @@ router.get('/', async (req, res) => {
             ],
         });
 
-        const post = dbBattleData.get({ plain: true });
-        console.log(post);
-        res.status(200).json(post)
+        const post = dbBattleData.get({ plain: true }); //getting active user, game, and level
+        const pokemon = post.pokemons[0];
+        const level = post.games[0].levels[0]; //getting active level
+        const monster = level.monsters[0]; //getting active monster
+        // res.status(200).json({post, level, monster});
+        console.log(level);
+        res.status(200).render('game_battle', { post, pokemon, level, monster })
 
     } catch (err) {
         console.log(err)
