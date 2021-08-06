@@ -1,10 +1,10 @@
 <div class="card" style="width: 18rem;">
-    <img src=`{{pokemon.url}}` class="card-img-top" alt=`{{pokemon.name}}`>
+    <img src=`{{pokemon.sprite}}` class="card-img-top" alt=`{{pokemon.name}}`>
     <div class="card-body">
-        <h5 class="card-title">{{pokemon.name}}</h5>
+        <h5 class="card-title" id='pokemon' data-p_id=`{{pokemon.id}} data-p_name=`{{pokemon.name}}`>{{pokemon.name}}</h5>
         <p class="card-text">{{pokemon.description}}</p>
-        <p class="card-text">Hitpoints: {{pokemon.hp}}</p> 
+        <p class="card-text" id='pokemonHp' data-p_hp=`{{pokemon.hp}}`>Hitpoints: {{pokemon.hp}}</p> 
         <p class='card-text'>Stats: {{!-- TODO: add stats, moves --}}</p>
-        <a href="#" class="btn btn-primary">Use this move!</a>
+        <a href="#" class="btn btn-primary" id="p_move_one" data-move_one=`{{pokemon.move_one}}`>Use {{pokemon.move_one}}!</a>
     </div>
 </div>
