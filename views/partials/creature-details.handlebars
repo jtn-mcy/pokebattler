@@ -1,8 +1,12 @@
-<div class="card" style="width: 18rem;">
-  <img src=`{{pic_url}}` class="card-img-top" alt=`{{name}}`>
+<div class="card m-1" style="width: 18rem;" id='creature-details'>
+  <img src={{sprite}} class="card-img-top" alt=`{{name}}`>
   <div class="card-body">
     <h5 class="card-title">{{name}}</h5>
-    <p class="card-text">{{description}}</p>
-    <p class="card-text">{{stats}}</p>
+    <p class="card-text m-0">{{description}}</p>
+    <hr class='my-0' />
+    <p class="card-text m-0">Hit points: {{hitpoints}}</p>
+    <hr class='my-0' />
+    <p class="card-text m-0">Moves: {{move_one}}, {{move_two}}, {{move_three}}, {{move_four}},</p>
+    <hr class='my-0' />
   </div>
 </div>
