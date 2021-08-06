@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { User } = require('../../models');
 
-// GET all users for login.handlebars page
+// GET all users
 router.get('/', async (req, res) => {
   try {
     const userData = await User.findAll();
