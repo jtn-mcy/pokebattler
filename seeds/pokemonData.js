@@ -23,7 +23,7 @@ const pokemondata = [
     move_three: "thunder punch",
     move_four: "scratch",
     sprite: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png",
-    user_id: 2,
+    user_id: 1,
   },
   {
     name: 'Squirtle',
@@ -35,7 +35,7 @@ const pokemondata = [
     move_three: "mega kick",
     move_four: "headbutt",
     sprite: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/7.png",
-    user_id: 3,
+    user_id: 1,
   },
 ];
 
