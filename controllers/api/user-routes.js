@@ -48,13 +48,15 @@ router.post('/', async (req, res) => {
     });
 
     // For testing
-    res.json(dbUserData);
+    // res.json(dbUserData);
 
     // For when working with cookies
-    // req.session.save(() => {
-    //   req.session.loggedIn = true;
-    //   res.status(200).json(dbUserData);
-    // });
+    // console.log('req.session.loggedIn', req.session.loggedIn);
+    req.session.save(() => {
+      req.session.loggedIn = true;
+      // console.log('req.session.loggedIn', req.session.loggedIn);
+      res.status(200).json(dbUserData);
+    });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
@@ -67,10 +69,10 @@ router.post('/login', async (req, res) => {
   try {
     const dbUserData = await User.findOne({
       where: {
-        email: req.body.email,
+        username: req.body.username,
       },
     });
-
+    console.log('dbUserData', dbUserData);
     if (!dbUserData) {
       res
         .status(400)
@@ -88,13 +90,12 @@ router.post('/login', async (req, res) => {
     }
 
     // For when working with cookies
-    // req.session.save(() => {
-    //   req.session.loggedIn = true;
-
-    //   res
-    //     .status(200)
-    //     .json({ user: dbUserData, message: 'You are now logged in!' });
-    // });
+    req.session.save(() => {
+      req.session.loggedIn = true;
+      res
+        .status(200)
+        .json({ user: dbUserData, message: 'You are now logged in!' });
+    });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);

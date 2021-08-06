@@ -10,12 +10,18 @@
       integrity='sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC'
       crossorigin='anonymous'
     />
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link
+      href='https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap'
+      rel='stylesheet'
+    />
     <link rel='stylesheet' href='/css/style.css' />
   </head>
   <body>
     <div class='jumbotron jumbotron-fluid text-center'>
-      <h1 class='display-4 home-title'><a id='pokebattle' href='/'>POKEBATTLE</a></h1>
+      <h1 class='display-4 home-title'><a
+          id='pokebattle'
+          href='/'
+        >POKEBATTLE</a></h1>
       <hr class='my-0' />
     </div>
     <ul class='nav d-flex justify-content-between' id='nav'>
@@ -34,7 +40,7 @@
       <li class='nav-item'>
         {{#if loggedIn}}
           <a
-            class='nav-link disabled'
+            class='nav-link'
             href='#'
             tabindex='-1'
             aria-disabled='true'
@@ -43,7 +49,7 @@
           {{! Goes home if user logs out}}
         {{else}}
           <a
-            class='nav-link disabled'
+            class='nav-link'
             href='/login'
             tabindex='-1'
             aria-disabled='true'
@@ -60,7 +66,7 @@
       integrity='sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM'
       crossorigin='anonymous'
     ></script>
-    <script src='/js/main.js'></script>
+    {{! <script src='/js/main.js'></script> }}
     {{#if loggedIn}}
       <script src='/js/logout.js'></script>
     {{/if}}
