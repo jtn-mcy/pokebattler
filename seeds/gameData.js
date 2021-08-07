@@ -2,7 +2,7 @@ const { Game } = require('../models');
 
 const gamedata = [
   {
-    current: true,
+    isCurrent: true,
     beat_game: false,
     score: 0,
     user_id: 1,
