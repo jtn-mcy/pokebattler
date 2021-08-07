@@ -2,7 +2,7 @@
 //Once chosen, a new pokemon will be posted into the pokemon database using the user's req.session.id
 
 const addCharmander = async () => {
-    await fetch ('/api/pokemons', {
+    await fetch ('/play/start/pokemons', {
         method: 'POST',
         body: JSON.stringify({
             name: charmander[0],
@@ -23,7 +23,7 @@ const addCharmander = async () => {
 }
 
 const addSquirtle = async () => {
-    await fetch ('/api/pokemons', {
+    await fetch ('/play/start/pokemons', {
         method: 'POST',
         body: JSON.stringify({
             name: squirtle[0],
@@ -44,7 +44,7 @@ const addSquirtle = async () => {
 }
 
 const addBulbasaur = async () => {
-    await fetch ('/api/pokemons', {
+    await fetch ('/play/start/pokemons', {
         method: 'POST',
         body: JSON.stringify({
             name: bulbasaur[0],

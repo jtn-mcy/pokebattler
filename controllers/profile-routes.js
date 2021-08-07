@@ -5,13 +5,8 @@ router.get('/', async (req, res) => {
   try {
     const profileData = await User.findAll({
       include: [
-        // {
-        //   model: Level,
-        //   attributes: ['id'],
-        // },
         {
           model: Pokemon,
-          attributes: ['name'],
         },
       ],
     });

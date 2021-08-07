@@ -149,7 +149,6 @@ console.log('levelId', levelId);
 console.log('monsterTurn', monsterTurn);
 
 if (monsterTurn === "true") {
-    console.log('is it monster turn', monsterTurn);
     playerTakesDamage();  
 };
 
