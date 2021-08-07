@@ -25,7 +25,11 @@ Pokemon.init(
     },
     is_dead: {
       type: DataTypes.BOOLEAN,
-      allowNull: false,
+      defaultValue: false,
+    },
+    is_current: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false,
     },
     move_one: {
       type: DataTypes.STRING,
