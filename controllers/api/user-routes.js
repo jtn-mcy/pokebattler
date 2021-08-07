@@ -48,13 +48,26 @@ router.post('/', async (req, res) => {
     });
 
     // For testing
-    res.json(dbUserData);
+    // res.json(dbUserData);
 
-    // For when working with cookies
-    // req.session.save(() => {
-    //   req.session.loggedIn = true;
-    //   res.status(200).json(dbUserData);
-    // });
+    const userData = await User.findOne({
+      where: {
+        username: req.body.username,
+      },
+    });
+
+    const user = userData.get({ plain: true });
+
+    req.session.save(() => {
+      req.session.loggedIn = true;
+      req.session.username = user.username;
+      req.session.user_id = user.id;
+
+      // console.log('req.session.username', req.session.username);
+      // console.log('req.session.user_id', req.session.user_id);
+
+      res.status(200).json(dbUserData);
+    });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
@@ -67,7 +80,7 @@ router.post('/login', async (req, res) => {
   try {
     const dbUserData = await User.findOne({
       where: {
-        email: req.body.email,
+        username: req.body.username,
       },
     });
 
@@ -87,14 +100,27 @@ router.post('/login', async (req, res) => {
       return;
     }
 
-    // For when working with cookies
-    // req.session.save(() => {
-    //   req.session.loggedIn = true;
+    const userData = await User.findOne({
+      where: {
+        username: req.body.username,
+      },
+    });
 
-    //   res
-    //     .status(200)
-    //     .json({ user: dbUserData, message: 'You are now logged in!' });
-    // });
+    const user = userData.get({ plain: true });
+
+    // For when working with cookies
+    req.session.save(() => {
+      req.session.loggedIn = true;
+      req.session.username = user.username;
+      req.session.user_id = user.id;
+
+      // console.log('req.session.username', req.session.username);
+      // console.log('req.session.user_id', req.session.user_id);
+
+      res
+        .status(200)
+        .json({ user: dbUserData, message: 'You are now logged in!' });
+    });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
@@ -102,7 +128,6 @@ router.post('/login', async (req, res) => {
 });
 
 // Logout
-// Would need to add code in server.js to use cookies
 router.post('/logout', (req, res) => {
   if (req.session.loggedIn) {
     req.session.destroy(() => {
