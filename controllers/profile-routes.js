@@ -4,6 +4,10 @@ const { Pokemon, Monster, Game, User, Level } = require('../models');
 router.get('/', async (req, res) => {
   try {
     console.log(req.session.user_id);
+    if (!req.session.user_id) {
+      res.render('home');
+      return;
+    }
     const profileData = await User.findOne({
       where: {
         id: req.session.user_id
