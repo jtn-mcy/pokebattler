@@ -50,11 +50,22 @@ router.post('/', async (req, res) => {
     // For testing
     // res.json(dbUserData);
 
-    // For when working with cookies
-    // console.log('req.session.loggedIn', req.session.loggedIn);
+    const userData = await User.findOne({
+      where: {
+        username: req.body.username,
+      },
+    });
+
+    const user = userData.get({ plain: true });
+
     req.session.save(() => {
       req.session.loggedIn = true;
-      // console.log('req.session.loggedIn', req.session.loggedIn);
+      req.session.username = user.username;
+      req.session.user_id = user.id;
+
+      // console.log('req.session.username', req.session.username);
+      // console.log('req.session.user_id', req.session.user_id);
+
       res.status(200).json(dbUserData);
     });
   } catch (err) {
@@ -89,9 +100,23 @@ router.post('/login', async (req, res) => {
       return;
     }
 
+    const userData = await User.findOne({
+      where: {
+        username: req.body.username,
+      },
+    });
+
+    const user = userData.get({ plain: true });
+
     // For when working with cookies
     req.session.save(() => {
       req.session.loggedIn = true;
+      req.session.username = user.username;
+      req.session.user_id = user.id;
+
+      // console.log('req.session.username', req.session.username);
+      // console.log('req.session.user_id', req.session.user_id);
+
       res
         .status(200)
         .json({ user: dbUserData, message: 'You are now logged in!' });
