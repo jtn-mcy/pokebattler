@@ -39,6 +39,72 @@ router.get('/', async (req, res) => {
     } catch (err) {
         console.log(err)
     }
+});
+
+router.get('/pokemons/:id', async (req, res) => {
+    try {
+        const dbPokemonData = await Pokemon.findByPk(req.params.id);
+
+        post = dbPokemonData.get({ plain: true });
+        res.status(200).json(post);
+
+    } catch (err) {
+        res.status(500).json(err);
+    }
+});
+
+
+//Monster  gets damaged
+router.put('/monsters/:id', async (req, res) => {
+    try {
+        const dbMonsterData = await Monster.update(
+            {
+                hitpoints: req.body.hitpoints,
+                is_dead: req.body.is_dead
+            }, {
+                where: {
+                    id: req.params.id
+                },
+            });
+        res.status(200).json(dbMonsterData)
+    } catch (err) {
+        res.status(500).json(err)
+    }
+});
+
+//pokemon gets damaged
+router.put('/pokemons/:id', async (req, res) => {
+    try {
+        const dbPokemonData = await Pokemon.update(
+            {
+                hitpoints: req.body.hitpoints,
+                is_dead: req.body.is_dead
+            }, {
+                where: {
+                    id: req.params.id
+                },
+            });
+        res.status(200).json(dbPokemonData);
+    } catch (err) {
+        res.status(500).json(err);
+    };
+});
+
+router.put('/levels/:id', async (req, res) => {
+    try {
+        const dbLevelData = await Level.update(
+            {
+                monsterTurn: req.body.monsterTurn
+            } ,{
+                where: {
+                    id: req.params.id
+                },
+            });
+        // res.status(200).json(dbLevelData);
+        res.status(200).render('game_battle');
+    } catch (err) {
+        res.status(500).json(err);
+    }
 })
 
 module.exports = router;
