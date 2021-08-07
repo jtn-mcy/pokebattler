@@ -40,3 +40,17 @@
 #creature-details {
     background-color: var(--gold)
 }
+
+#login-splash {
+    max-width: 500px;
+    max-height: 500px;
+}
+
+#profile-card-body,
+#profile-no-pokemon {
+    background-color: var(--quarternary);
+}
+
+.login-card {
+    max-width: 200px
+}
