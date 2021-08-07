@@ -20,7 +20,7 @@ router.get('/', async (req, res) => {
     console.log(pokemons);
 
     res.render('pokedex', {
-      pokemons: pokemons,
+      pokemons: pokemons, loggedIn: req.session.loggedIn
     });
   } catch (err) {
     console.log(err);

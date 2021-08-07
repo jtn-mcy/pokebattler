@@ -2,6 +2,7 @@ const router = require('express').Router();
 
 router.get('/', async (req, res) => {
   console.log('arrived at home route');
+  console.log(req.session.loggedIn);
   res.render('home', { loggedIn: req.session.loggedIn });
 });
 

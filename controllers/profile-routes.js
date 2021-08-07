@@ -15,7 +15,7 @@ router.get('/', async (req, res) => {
 
     console.log(profile);
     res.render('profile', {
-      profile: profile,
+      profile: profile, loggedIn: req.session.loggedIn
     });
     // res.json(profileData);
   } catch (err) {

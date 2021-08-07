@@ -40,3 +40,8 @@
 #creature-details {
     background-color: var(--gold)
 }
+
+#login-splash {
+    max-width: 500px;
+    max-height: 500px;
+}

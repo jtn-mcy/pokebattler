@@ -1,11 +1,10 @@
 {{! If not logged in, show a splash screen, otherwise, show play a new game }}
 <div class='row background'>
   {{#if loggedIn}}
-    <div class='col row d-flex justify-content-center flex-column'>
-      {{! <img
-      src='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/132.png'
-    /> }}
-      <div>Play!</div>
+    <div class='col d-flex align-items-center flex-column'>
+      <img
+      src='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/132.png' id='login-splash'/>
+      <button type="button" class="btn btn-success">PLAY POKEBATTLE!</div>
     </div>
   {{else}}
     <div class='col d-flex justify-content-center flex-row'>
@@ -17,3 +16,4 @@
     </div>
   {{/if}}
 </div>
+<script src='/js/menu/home.js'></script>
