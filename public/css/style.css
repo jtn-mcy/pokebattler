@@ -50,3 +50,7 @@
 #profile-no-pokemon {
     background-color: var(--quarternary);
 }
+
+.login-card {
+    max-width: 200px
+}
