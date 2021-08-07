@@ -1,10 +1,19 @@
 const router = require('express').Router();
-const { Pokemon, Monster } = require('../models');
+const { Pokemon, Monster, User } = require('../models');
 
 // GET all pokemons for pokedex page
 router.get('/', async (req, res) => {
   try {
-    const pokemonData = await Pokemon.findAll({});
+    const pokemonData = await Pokemon.findAll({
+      include: [
+        {
+          model: User,
+          attributes: [
+            'username',
+          ]
+        }
+      ] 
+    });
 
     const pokemons = pokemonData.map((pokemon) => pokemon.get({ plain: true }));
 
