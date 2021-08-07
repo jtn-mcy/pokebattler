@@ -45,3 +45,8 @@
     max-width: 500px;
     max-height: 500px;
 }
+
+#profile-card-body,
+#profile-no-pokemon {
+    background-color: var(--quarternary);
+}
