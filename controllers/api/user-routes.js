@@ -72,7 +72,7 @@ router.post('/login', async (req, res) => {
         username: req.body.username,
       },
     });
-    console.log('dbUserData', dbUserData);
+
     if (!dbUserData) {
       res
         .status(400)
@@ -103,7 +103,6 @@ router.post('/login', async (req, res) => {
 });
 
 // Logout
-// Would need to add code in server.js to use cookies
 router.post('/logout', (req, res) => {
   if (req.session.loggedIn) {
     req.session.destroy(() => {

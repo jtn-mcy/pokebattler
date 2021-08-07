@@ -39,13 +39,13 @@
       </li>
       <li class='nav-item'>
         {{#if loggedIn}}
-          <a
+          <button
             class='nav-link'
-            href='#'
+            {{! href='/api/users/logout' }}
             tabindex='-1'
             aria-disabled='true'
             id='logout'
-          >Logout</a>
+          >Logout</button>
           {{! Goes home if user logs out}}
         {{else}}
           <a
@@ -68,7 +68,7 @@
     ></script>
     {{! <script src='/js/main.js'></script> }}
     {{#if loggedIn}}
-      <script src='/js/logout.js'></script>
+      <script src='/js/menu/logout.js'></script>
     {{/if}}
     <script src='/js/menu/profile.js'></script>
   </body>
