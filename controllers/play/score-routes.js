@@ -56,7 +56,34 @@ router.get('/', async (req, res) => {
   }
 });
 
+router.get('/game/:id', async (req, res) => {
+  try{
+    const dbGameData = await Game.findByPk(req.params.id);
+    const game = dbGameData.get({ plain: true });
 
+    res.status(200).json(game);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+})
 
+router.put('/game/:id', async (req, res) => {
+  try {
+    const dbGameData = await Game.update(
+      {
+        isCurrent: req.body.isCurrent
+      },
+      {
+        where: {
+          id: req.params.id
+        }
+      }
+    )
+    console.log(dbGameData)
+    res.status(200).json(dbGameData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+})
 
 module.exports = router;
