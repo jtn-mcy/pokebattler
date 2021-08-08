@@ -168,7 +168,11 @@ async function init() {
   // If a current game is in process, then the continueGameImg should be displaying.
   // If so then create a new game, level, and monster
   // Then proceeds to the battle page
+<<<<<<< HEAD
   if (!continueImgEl) {
+=======
+  if (!continueGameImg) {
+>>>>>>> 7dc89393dba19124f45ac676437afb1760f72015
     await createNewGame();
     await createNewLevel();
     await createNewMonster();
@@ -195,7 +199,13 @@ if (bulbasaurEl) {
   bulbasaurEl.addEventListener('click', addBulbasaur);
 }
 
+<<<<<<< HEAD
 const continueImgEl = document.querySelector('#continue_game');
 if (continueImgEl) {
   continueImgEl.addEventListener('click', init);
+=======
+const continueGameImg = document.querySelector('#continue_game');
+if (continueGameImg) {
+  continueGameImg.addEventListener('click', init);
+>>>>>>> 7dc89393dba19124f45ac676437afb1760f72015
 }

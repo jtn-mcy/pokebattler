@@ -16,6 +16,11 @@ function goToGameStart() {
   document.location.replace('/play/start');
 }
 
+if (document.querySelector('#login-splash')) {
 document.querySelector('#login-splash').setAttribute('src', picList[newIndex]);
+}
 
-document.querySelector('#playBtn').addEventListener('click', goToGameStart);
+if (document.querySelector('#playBtn')) {
+  document.querySelector('#playBtn').addEventListener('click', goToGameStart);
+}
+

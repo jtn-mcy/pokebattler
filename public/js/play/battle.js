@@ -15,6 +15,23 @@ let pokemonName = document
 let pokemonHp = document.querySelector('#pokemonHp').getAttribute('data-p_hp'); //get current pokemon hp
 let pokemonId = document.querySelector('#pokemon').getAttribute('data-p_id'); //get pokemon id
 
+const faintSoundPokemon = new Howl ({
+  src: ['/sounds/pokemon_faint.mp3'],
+  volume: 0.2,
+})
+
+const faintSoundMonster = new Howl ({
+  src: ['/sounds/monster_faint.mp3'],
+  volume: 0.2
+})
+
+const cutSound = new Howl ({
+  src: ['/sounds/pokemon_cut.mp3'],
+  volume: 0.2,
+})
+
+// faintSound.play();
+
 const playerTakesDamage = async (event) => {
   damage = Math.floor(Math.random() * 11); //deals a range of 0-10 damage
 
@@ -29,6 +46,7 @@ const playerTakesDamage = async (event) => {
   );
 
   if (newPokemonHp < 0) {
+    faintSoundPokemon.play();
     const response = await fetch(`/play/battle/pokemons/${pokemonId}`, {
       method: 'PUT',
       body: JSON.stringify({
@@ -78,6 +96,7 @@ const playerTakesDamage = async (event) => {
 };
 
 const playerDealsDmg = async (event) => {
+  cutSound.play();
   const move = document
     .querySelector('#p_move_one')
     .getAttribute('data-p_move_one');
@@ -102,6 +121,7 @@ const playerDealsDmg = async (event) => {
 
   //Is monster dead?
   if (newMonsterHp < 0) {
+    faintSoundMonster.play()
     const response = await fetch(`/play/battle/monsters/${monsterId}`, {
       method: 'PUT',
       body: JSON.stringify({
@@ -169,17 +189,19 @@ moveList = {
   },
 };
 
-console.log('monsterName', monsterName);
-console.log('monsterHp', monsterHp);
-console.log('monsterId', monsterId);
-console.log('pokemonName', pokemonName);
-console.log('pokemonHp', pokemonHp);
-console.log('pokemonId', pokemonId);
-console.log('levelId', levelId);
-console.log('monsterTurn', monsterTurn);
+// console.log('monsterName', monsterName);
+// console.log('monsterHp', monsterHp);
+// console.log('monsterId', monsterId);
+// console.log('pokemonName', pokemonName);
+// console.log('pokemonHp', pokemonHp);
+// console.log('pokemonId', pokemonId);
+// console.log('levelId', levelId);
+// console.log('monsterTurn', monsterTurn);
 
 if (monsterTurn === 'true') {
   playerTakesDamage();
 }
+
+
 
 document.querySelector('#p_move_one').addEventListener('click', playerDealsDmg);
