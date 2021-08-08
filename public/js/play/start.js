@@ -168,10 +168,7 @@ async function init() {
   await createNewGame();
   await createNewLevel();
   await createNewMonster();
-  document.location.replace('/play/battle');
 }
-
-init();
 
 const charmanderEl = document.querySelector('#charmander');
 if (charmanderEl) {
@@ -189,5 +186,10 @@ if (bulbasaurEl) {
 
 const continueGameImg = document.querySelector('#continue_game');
 if (continueGameImg) {
-  continueGameImg.addEventListener('click', init);
+  continueGameImg.addEventListener(
+    'click',
+    document.location.replace('/play/battle')
+  );
 }
+
+init();

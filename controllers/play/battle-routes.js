@@ -2,10 +2,12 @@ const router = require('express').Router();
 const { User, Pokemon, Game, Level, Monster } = require('../../models');
 
 router.get('/', async (req, res) => {
+  console.log('req.session', req.session);
+
   try {
     const dbBattleData = await User.findOne({
       where: {
-        username: req.session.username,
+        id: req.session.user_id,
       },
       include: [
         {
@@ -28,6 +30,8 @@ router.get('/', async (req, res) => {
         },
       ],
     });
+
+    console.log('dbBattleData', dbBattleData);
 
     const post = dbBattleData.get({ plain: true }); //getting active user, game, and level
     const pokemon = post.pokemons[0];
