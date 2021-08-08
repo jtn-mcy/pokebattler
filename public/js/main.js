@@ -1,18 +1,23 @@
 //Rendering 
 
 const navBeep = new Howl ({
-    src: ['sounds/nav_item.mp3', '../sounds/nav_item.mp3'],
+    src: ['sounds/nav_item.mp3'],
     volume: 0.2,
 });
 
 const navBeepConfirm = new Howl ({
-    src: ['sounds/nav_item_confirm.mp3'],
+    src: ['../../sounds/nav_item.mp3'],
     volume: 0.2,
 });
 
 const playBeep = () => {
+    if (!navBeep) {
+        console.log('play!')
+        navBeepConfirm.play()
+    } else {
     console.log('play!')
     navBeep.play();
+    }
 }
 
 // const playConfirm = () => {

@@ -162,32 +162,40 @@ async function createNewMonster() {
   }
 }
 
-const continueGameImg = document.querySelector('#continue_game');
+
 
 async function init() {
   // If a current game is in process, then the continueGameImg should be displaying.
   // If so then create a new game, level, and monster
   // Then proceeds to the battle page
-  if (continueGameImg) {
+  if (!continueGameImg) {
     await createNewGame();
     await createNewLevel();
     await createNewMonster();
     document.location.replace('/play/battle');
   }
+    else {
+      document.location.replace('/play/battle');
+  }
 }
 
 init();
 
-var charmanderEl = document.querySelector('#charmander');
+const charmanderEl = document.querySelector('#charmander');
 if (charmanderEl) {
   charmanderEl.addEventListener('click', addCharmander);
 }
-var squirtleEl = document.querySelector('#squirtle');
+const squirtleEl = document.querySelector('#squirtle');
 if (squirtleEl) {
   squirtleEl.addEventListener('click', addSquirtle);
 }
 
-var bulbasaurEl = document.querySelector('#bulbasaur');
+const bulbasaurEl = document.querySelector('#bulbasaur');
 if (bulbasaurEl) {
   bulbasaurEl.addEventListener('click', addBulbasaur);
+}
+
+const continueGameImg = document.querySelector('#continue_game');
+if (continueGameImg) {
+  continueGameImg.addEventListener('click', init);
 }
