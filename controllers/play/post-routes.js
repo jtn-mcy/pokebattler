@@ -56,4 +56,23 @@ router.get('/', async (req, res) => {
   }
 });
 
+router.put('/game/:id', async (req, res) => {
+  try {
+    const dbGameData = await Game.update(
+      {
+        beat_game: req.body.beat_game,
+        score: req.body.score,
+      },
+      {
+        where: {
+          id: req.params.id,
+        },
+    });
+
+    res.status(200).json(dbGameData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+})
+
 module.exports = router;

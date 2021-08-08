@@ -53,7 +53,7 @@ const playerTakesDamage = async (event) => {
         hitpoints: 0,
         is_dead: true,
       }),
-      heads: { 'Content-Type': 'application/json' },
+      headers: { 'Content-Type': 'application/json' },
     });
 
     if (response.ok) {
