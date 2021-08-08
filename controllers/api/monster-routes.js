@@ -38,7 +38,7 @@ router.post('/', async (req, res) => {
       hitpoints: req.body.hitpoints,
       is_dead: false,
       move_one: req.body.move_one,
-      sprite: 'sprite1',
+      sprite: req.body.sprite,
       level_id: req.body.level_id,
     });
 

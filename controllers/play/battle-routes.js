@@ -5,7 +5,7 @@ router.get('/', async (req, res) => {
   try {
     const dbBattleData = await User.findOne({
       where: {
-        username: 'user3',
+        username: req.session.username,
       },
       include: [
         {
@@ -19,7 +19,10 @@ router.get('/', async (req, res) => {
           include: {
             model: Level,
             include: {
-              model: Monster, //
+              model: Monster,
+              where: {
+                is_dead: false,
+              },
             },
           },
         },
