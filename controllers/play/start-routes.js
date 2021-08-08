@@ -5,20 +5,22 @@ router.get('/', async (req, res) => {
   try {
     const dbGameData = await Game.findOne({
       where: {
-        user_id: 1,
+        // user_id: req.session.user_id,
         isCurrent: true,
       },
     });
-
+    console.log(dbGameData);
     if (!dbGameData) {
       res.render('game_start', { isCurrent: false });
-    } //starts a new game
-    const game = dbGameData.get({ plain: true });
-    console.log(game);
-    // res.status(200).json(game);
-    res.render('game_start', { game });
+    } else {
+      //starts a new game
+      const game = dbGameData.get({ plain: true });
+      console.log(game);
+      // res.status(200).json(game);
+      res.render('game_start', { game });
+    }
   } catch (err) {
-    req.status(500).json(err);
+    res.status(500).json(err);
   }
 });
 
@@ -36,6 +38,7 @@ router.post('/pokemons', async (req, res) => {
     });
 
     const pokemon = newPokemon.get({ plain: true });
+    console.log(pokemon);
     res.status(200).json(pokemon);
   } catch (err) {
     res.status(500).json(err);
