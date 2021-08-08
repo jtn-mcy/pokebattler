@@ -9,13 +9,13 @@ router.get('/', async (req, res) => {
         isCurrent: true,
       },
     });
-    console.log(dbGameData);
+    // console.log(dbGameData);
     if (!dbGameData) {
       res.render('game_start', { isCurrent: false });
     } else {
       //starts a new game
       const game = dbGameData.get({ plain: true });
-      console.log(game);
+      // console.log(game);
       // res.status(200).json(game);
       res.render('game_start', { game });
     }
@@ -40,6 +40,25 @@ router.post('/pokemons', async (req, res) => {
     const pokemon = newPokemon.get({ plain: true });
     console.log(pokemon);
     res.status(200).json(pokemon);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+// CREATE A NEW GAME
+router.post('/games', async (req, res) => {
+  try {
+    const newGame = await Game.create({
+      isCurrent: true,
+      beat_game: false,
+      score: 0,
+      user_id: req.session.user_id,
+    });
+
+    const game = newGame.get({ plain: true });
+
+    // console.log('game', game);
+    res.status(200).json(game);
   } catch (err) {
     res.status(500).json(err);
   }

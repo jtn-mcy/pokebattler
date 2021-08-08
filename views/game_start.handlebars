@@ -1,5 +1,5 @@
 {{! IF NO GAME IN PROGRESS }}
-{{#if game.isCurrent}}
+{{#unless game.isCurrent}}
   <div class='row d-flex flex-column'>
     <div
       class='col-2 container-fluid d-flex justify-content-center text-nowrap'
@@ -39,5 +39,6 @@
     src='/images/game_start_continue.png'
     id='continue_game'
   />
-{{/if}}
+  {{!-- <button class="btn btn-success" id="new_game">New game</button> --}}
+{{/unless}}
 <script src='/js/play/start.js'></script>
