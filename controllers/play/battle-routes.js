@@ -14,7 +14,7 @@ router.get('/', async (req, res) => {
                 {
                     model: Game,
                     where: {
-                        current: true
+                        isCurrent: true
                     },
                     include: {
                         

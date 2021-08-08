@@ -1,7 +1,7 @@
 //Rendering 
 
 const navBeep = new Howl ({
-    src: ['sounds/nav_item.mp3'],
+    src: ['sounds/nav_item.mp3', '../sounds/nav_item.mp3'],
     volume: 0.2,
 });
 
