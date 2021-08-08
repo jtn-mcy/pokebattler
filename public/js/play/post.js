@@ -11,11 +11,12 @@ async function createMonster() {
   const response = await fetch('/api/monsters', {
     method: 'POST',
     body: JSON.stringify({
-      name: 'monster2',
-      description: 'desc2',
-      hitpoints: Math.floor(Math.random() * 20 + 55),
-      move_one: 'Slam',
-      sprite: 'sprite2',
+      name: 'Darkrai',
+      description: 'Dark',
+      hitpoints: Math.floor(Math.random() * 20 + 80),
+      move_one: 'tackle',
+      sprite:
+        'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/491.png',
       level_id: `${levelId}`,
     }),
     headers: { 'Content-Type': 'application/json' },
