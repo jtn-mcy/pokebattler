@@ -19,6 +19,11 @@ Level.init(
       type: DataTypes.INTEGER,
       allowNull: false,
     },
+    monsterTurn: {
+      type: DataTypes.BOOLEAN,
+      default: false,
+      allowNull: false,
+    },
     game_id: {
         type: DataTypes.INTEGER,
         references: {

@@ -1,8 +1,10 @@
-{{!-- IF NO GAME IN PROGRESS --}}
-{{#unless game.inProgress}}
-<div class="row d-flex flex-column">
-    <div class='col-2 container-fluid d-flex justify-content-center text-nowrap'>
-        <h3>Select a starter pokemon!</h3>
+{{! IF NO GAME IN PROGRESS }}
+{{#if game.isCurrent}}
+  <div class='row d-flex flex-column'>
+    <div
+      class='col-2 container-fluid d-flex justify-content-center text-nowrap'
+    >
+      <h3>Select a starter pokemon!</h3>
     </div>
     <div class='col-10 container-fluid'>
         <div class="row d-flex flex-row justify-content-around">
@@ -10,27 +12,32 @@
                 <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/4.png" class="card-img-top" alt="...">
                 <div class="card-body">
                     <p class="card-text">Stats:</p> {{!-- add some stats here --}}
-                <a href="#" class="btn btn-primary" id="charmander">Pick Charmander!</a>
+                <button class="btn btn-primary" id="charmander">Pick Charmander!</button>
                 </div>
             </div>
                 <div class="card" style="width: 16rem;">
                 <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/7.png" class="card-img-top" alt="...">
                 <div class="card-body">
                     <p class="card-text">Stats:</p> {{!-- add some stats here --}}
-                <a href="#" class="btn btn-primary" id="squirtle">Pick Squirtle!</a>
+                <button class="btn btn-primary" id="squirtle">Pick Squirtle!</button>
                 </div>
             </div>
                 <div class="card" style="width: 16rem;">
                 <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png" class="card-img-top" alt="...">
                 <div class="card-body">
                     <p class="card-text">Stats:</p> {{!-- add some stats here --}}
-                <a href="#" class="btn btn-primary" id="bulbasaur">Pick Bulbasaur!</a>
+                <button class="btn btn-primary" id="bulbasaur">Pick Bulbasaur!</button>
                 </div>
             </div>
         </div>
+      </div>
     </div>
-</div>
+  </div>
 {{else}}
-{{!-- Script to go to game_play/game_post screen--}}
-{{/unless}}
+  <img
+    class='position-absolute top-50 start-50 translate-middle'
+    src='/images/game_start_continue.png'
+    id='continue_game'
+  />
+{{/if}}
 <script src='/js/play/start.js'></script>

@@ -11,7 +11,7 @@ Game.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    current: {
+    isCurrent: {
       type: DataTypes.BOOLEAN,
       allowNull: false,
     },

@@ -45,7 +45,7 @@ Monster.init(
     },
     sprite: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     level_id: {
       type: DataTypes.INTEGER,

@@ -1,0 +1,56 @@
+/* Color themes for pokemon */
+:root {
+    --primary: #FF0000;
+    --secondary: #CC0000;
+    --tertiary: #3B4CCA;
+    --quarternary: #FFDE00;
+    --gold: #B3A125;
+    --background: #E8E2BD;
+}
+
+#pokebattle {
+    text-decoration: none;
+    color: var(--quarternary);
+}
+
+#nav {
+    background-color: var(--tertiary);
+}
+
+.home-title {
+    background-color: var(--primary);
+    
+    font-family: 'Press Start 2P', cursive;
+}
+
+.nav-link {
+    color: var(--gold);
+    font-family: 'Press Start 2P', cursive;
+}
+
+.background {
+    background-color: var(--background);
+    height: 100%;
+}
+
+.card {
+    max-height: 600px;
+}
+
+#creature-details {
+    background-color: var(--gold)
+}
+
+#login-splash {
+    max-width: 500px;
+    max-height: 500px;
+}
+
+#profile-card-body,
+#profile-no-pokemon {
+    background-color: var(--quarternary);
+}
+
+.login-card {
+    max-width: 200px
+}

@@ -2,13 +2,13 @@
 //Once chosen, a new pokemon will be posted into the pokemon database using the user's req.session.id
 
 const addCharmander = async () => {
-    await fetch ('/api/pokemons', {
+    const response = await fetch ('/play/start/pokemons', {
         method: 'POST',
         body: JSON.stringify({
             name: charmander[0],
             description: charmander[1],
             hitpoints: charmander[2],
-            move_one: charmander[3],
+            move_one: charmander[3][0],
             sprite: charmander[4]
         }),
         headers: { 'Content-Type': 'application/json' },
@@ -23,13 +23,13 @@ const addCharmander = async () => {
 }
 
 const addSquirtle = async () => {
-    await fetch ('/api/pokemons', {
+    const response =  await fetch ('/play/start/pokemons', {
         method: 'POST',
         body: JSON.stringify({
             name: squirtle[0],
             description: squirtle[1],
             hitpoints: squirtle[2],
-            move_one: squirtle[3],
+            move_one: squirtle[3][0],
             sprite: squirtle[4]
         }),
         headers: { 'Content-Type': 'application/json' },
@@ -44,13 +44,13 @@ const addSquirtle = async () => {
 }
 
 const addBulbasaur = async () => {
-    await fetch ('/api/pokemons', {
+    const response =  await fetch ('/play/start/pokemons', {
         method: 'POST',
         body: JSON.stringify({
             name: bulbasaur[0],
             description: bulbasaur[1],
             hitpoints: bulbasaur[2],
-            move_one: bulbasaur[3],
+            move_one: bulbasaur[3][0],
             sprite: bulbasaur[4]
         }),
         headers: { 'Content-Type': 'application/json' },

@@ -25,7 +25,11 @@ Pokemon.init(
     },
     is_dead: {
       type: DataTypes.BOOLEAN,
-      allowNull: false,
+      defaultValue: false,
+    },
+    is_current: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false,
     },
     move_one: {
       type: DataTypes.STRING,
@@ -45,7 +49,7 @@ Pokemon.init(
     },
     sprite: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     user_id: {
       type: DataTypes.INTEGER,

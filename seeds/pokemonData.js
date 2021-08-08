@@ -2,12 +2,46 @@ const { Pokemon } = require('../models');
 
 const pokemondata = [
   {
-    name: 'pokemon1',
-    description: 'desc1',
-    hitpoints: '30',
+    name: 'Bulbasaur',
+    description: 'Grass',
+    hitpoints: Math.floor(Math.random() * (20) + 80),
     is_dead: false,
-    moveset: ['move1', 'move2', 'move3'],
-    sprite: 'sprite1',
+    is_current: false,
+    move_one: "tackle",
+    move_two: "swords dance",
+    move_three: "cut",
+    move_four: "bind",
+    sprite: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png",
+    user_id: 1,
+  },
+  {
+    name: 'Charmander',
+    description: 'Fire',
+    hitpoints: Math.floor(Math.random() * (20) + 80),
+    is_dead: false,
+    is_current: true,
+    move_one: "tackle",
+    move_two: "fire punch",
+    move_three: "thunder punch",
+    move_four: "scratch",
+    sprite: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png",
+    user_id: 1,
+  },
+  {
+    name: 'Squirtle',
+    description: 'Water',
+    hitpoints: Math.floor(Math.random() * (20) + 80),
+    is_dead: false,
+    is_current: false,
+    move_one: "tackle",
+    move_two: "ice punch",
+    move_three: "mega kick",
+    move_four: "headbutt",
+    sprite: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/7.png",
     user_id: 1,
   },
 ];
+
+const seedGallery = () => Pokemon.bulkCreate(pokemondata);
+
+module.exports = seedGallery;
