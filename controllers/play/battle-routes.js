@@ -21,28 +21,10 @@ router.get('/', async (req, res) => {
             include: {
               model: Monster, //
             },
-<<<<<<< HEAD
-            include: [
-                {
-                    model: Pokemon
-                },
-                {
-                    model: Game,
-                    where: {
-                        isCurrent: true
-                    },
-                    include: {
-                        
-                        model: Level,
-                        include: {
-                            model: Monster //
-                        }
-=======
           },
         },
       ],
     });
->>>>>>> 4d35a622aa62886be3d13064d0964475d8e09272
 
     const post = dbBattleData.get({ plain: true }); //getting active user, game, and level
     const pokemon = post.pokemons[0];
