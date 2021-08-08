@@ -26,12 +26,15 @@ const signupFormHandler = async (event) => {
   const username = document.querySelector('#username-signup').value.trim();
   const password = document.querySelector('#password-signup').value.trim();
   const password2 = document.querySelector('#password-signup2').value.trim();
-  const gender = 'male';
+  let gender;
   let avatar;
-  if (gender === 'male') {
+  let randomizer = Math.floor(Math.random()*2)
+  if (randomizer === '0') {
+    gender = 'male';
     avatar =
       'https://static.wikia.nocookie.net/pokemon/images/5/57/Red_FireRed_and_LeafGreen.png';
   } else {
+    gender = 'female';
     avatar =
       'https://static.wikia.nocookie.net/pokemon/images/0/01/Green_FireRed_and_LeafGreen.png';
   }
