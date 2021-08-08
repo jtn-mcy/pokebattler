@@ -67,12 +67,13 @@ router.put('/game/:id', async (req, res) => {
         where: {
           id: req.params.id,
         },
-    });
+      }
+    );
 
     res.status(200).json(dbGameData);
   } catch (err) {
     res.status(500).json(err);
   }
-})
+});
 
 module.exports = router;

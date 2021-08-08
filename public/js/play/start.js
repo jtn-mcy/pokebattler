@@ -150,6 +150,7 @@ async function createNewMonster() {
       description: 'desc1',
       hitpoints: Math.floor(Math.random() * 20 + 55),
       move_one: 'Slam',
+      sprite: 'sprite1',
       level_id: `${newLevelId}`,
     }),
     headers: { 'Content-Type': 'application/json' },
@@ -162,21 +163,11 @@ async function createNewMonster() {
   }
 }
 
-
-
 async function init() {
-  // If a current game is in process, then the continueGameImg should be displaying.
-  // If so then create a new game, level, and monster
-  // Then proceeds to the battle page
-  if (!continueGameImg) {
-    await createNewGame();
-    await createNewLevel();
-    await createNewMonster();
-    document.location.replace('/play/battle');
-  }
-    else {
-      document.location.replace('/play/battle');
-  }
+  await createNewGame();
+  await createNewLevel();
+  await createNewMonster();
+  document.location.replace('/play/battle');
 }
 
 init();
