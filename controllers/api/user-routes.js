@@ -84,7 +84,11 @@ router.post('/login', async (req, res) => {
       },
     });
 
-    if (!dbUserData) {
+    const user = dbUserData.get({ plain: true });
+
+    console.log('user', user);
+
+    if (!user) {
       res
         .status(400)
         .json({ message: 'Incorrect email or password. Please try again!' });
@@ -100,13 +104,13 @@ router.post('/login', async (req, res) => {
       return;
     }
 
-    const userData = await User.findOne({
-      where: {
-        username: req.body.username,
-      },
-    });
+    // const userData = await User.findOne({
+    //   where: {
+    //     username: req.body.username,
+    //   },
+    // });
 
-    const user = userData.get({ plain: true });
+    // const user = userData.get({ plain: true });
 
     // For when working with cookies
     req.session.save(() => {

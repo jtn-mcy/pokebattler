@@ -49,6 +49,14 @@ User.init(
         return newUserData;
       },
     },
+    hooks: {
+      async beforeBulkCreate(newUsersData) {
+        for (var each of newUsersData) {
+          each.password = await bcrypt.hash(each.password, 8);
+        }
+        return newUsersData;
+      },
+    },
     sequelize,
     freezeTableName: true,
     underscored: true,
