@@ -1,6 +1,11 @@
 //User will choose a pokemon to start off with
 //Once chosen, a new pokemon will be posted into the pokemon database using the user's req.session.id
 
+// This variable contains the id of the newly created game and is used to create a new level.
+var newGameId;
+// This variable contains the id of the newly created level and is used to create a new monster.
+var newLevelId;
+
 const addCharmander = async () => {
   const response = await fetch('/play/start/pokemons', {
     method: 'POST',
@@ -99,6 +104,12 @@ async function createNewGame() {
     headers: { 'Content-Type': 'application/json' },
   });
 
+  // Convert the response into a json object
+  const newGame = await response.json();
+  // console.log('new game', newGame);
+  // Store the id of the new game so that a new level can be created
+  newGameId = newGame.id;
+
   if (response.ok) {
     alert('Successfully created a new game');
   } else {
@@ -113,10 +124,16 @@ async function createNewLevel() {
       location: 'location1',
       monster_left: 5,
       monsterTurn: false,
-      game_id: 1,
+      game_id: `${newGameId}`,
     }),
     headers: { 'Content-Type': 'application/json' },
   });
+
+  // Convert the response into a json object
+  const newLevel = await response.json();
+  // console.log(newLevel);
+  // Store the id of the new level so that a new monster can be created
+  newLevelId = newLevel.id;
 
   if (response.ok) {
     alert('Successfully created a new level');
@@ -133,7 +150,7 @@ async function createNewMonster() {
       description: 'desc1',
       hitpoints: Math.floor(Math.random() * 20 + 55),
       move_one: 'Slam',
-      level_id: 1,
+      level_id: `${newLevelId}`,
     }),
     headers: { 'Content-Type': 'application/json' },
   });
@@ -148,6 +165,9 @@ async function createNewMonster() {
 const continueGameImg = document.querySelector('#continue_game');
 
 async function init() {
+  // If a current game is in process, then the continueGameImg should be displaying.
+  // If so then create a new game, level, and monster
+  // Then proceeds to the battle page
   if (continueGameImg) {
     await createNewGame();
     await createNewLevel();

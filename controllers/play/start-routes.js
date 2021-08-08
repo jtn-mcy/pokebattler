@@ -74,7 +74,7 @@ router.post('/levels', async (req, res) => {
       game_id: req.body.game_id,
     });
 
-    console.log('newLevel', newLevel);
+    // console.log('newLevel', newLevel);
 
     const level = newLevel.get({ plain: true });
 
