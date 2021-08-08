@@ -15,7 +15,7 @@ const addCharmander = async () => {
   });
 
   if (response.ok) {
-    document.location.replace('/battle');
+    document.location.replace('/play/battle');
   } else {
     alert('Failed to create new pokemon');
     return;
@@ -36,7 +36,7 @@ const addSquirtle = async () => {
   });
 
   if (response.ok) {
-    document.location.replace('/battle');
+    document.location.replace('/play/battle');
   } else {
     alert('Failed to create new pokemon');
     return;
@@ -57,7 +57,7 @@ const addBulbasaur = async () => {
   });
 
   if (response.ok) {
-    document.location.replace('/battle');
+    document.location.replace('/play/battle');
   } else {
     alert('Failed to create new pokemon');
     return;
@@ -106,15 +106,58 @@ async function createNewGame() {
   }
 }
 
-// async function createNewLevel() {
-//   const response =
-// }
+async function createNewLevel() {
+  const response = await fetch('/play/start/levels', {
+    method: 'POST',
+    body: JSON.stringify({
+      location: 'location1',
+      monster_left: 5,
+      monsterTurn: false,
+      game_id: 1,
+    }),
+    headers: { 'Content-Type': 'application/json' },
+  });
 
-createNewGame();
+  if (response.ok) {
+    alert('Successfully created a new level');
+  } else {
+    alert('Failed to create new level');
+  }
+}
+
+async function createNewMonster() {
+  const response = await fetch('/api/monsters', {
+    method: 'POST',
+    body: JSON.stringify({
+      name: 'monster1',
+      description: 'desc1',
+      hitpoints: Math.floor(Math.random() * 20 + 55),
+      move_one: 'Slam',
+      level_id: 1,
+    }),
+    headers: { 'Content-Type': 'application/json' },
+  });
+
+  if (response.ok) {
+    alert('Successfully created a new monster');
+  } else {
+    alert('Failed to create new monster');
+  }
+}
+
+const continueGameImg = document.querySelector('#continue_game');
+
+async function init() {
+  if (continueGameImg) {
+    await createNewGame();
+    await createNewLevel();
+    await createNewMonster();
+    document.location.replace('/play/battle');
+  }
+}
+
+init();
 
 document.querySelector('#charmander').addEventListener('click', addCharmander);
 document.querySelector('#squirtle').addEventListener('click', addSquirtle);
 document.querySelector('#bulbasaur').addEventListener('click', addBulbasaur);
-
-// const continueGame = document.querySelector('#continue_game');
-// console.log('continueGame', continueGame);

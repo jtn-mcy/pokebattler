@@ -64,4 +64,24 @@ router.post('/games', async (req, res) => {
   }
 });
 
+// Create a new level
+router.post('/levels', async (req, res) => {
+  try {
+    const newLevel = await Level.create({
+      location: req.body.location,
+      monster_left: req.body.monster_left,
+      monsterTurn: req.body.monsterTurn,
+      game_id: req.body.game_id,
+    });
+
+    console.log('newLevel', newLevel);
+
+    const level = newLevel.get({ plain: true });
+
+    res.status(200).json(level);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 module.exports = router;
