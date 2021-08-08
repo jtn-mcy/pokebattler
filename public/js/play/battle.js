@@ -1,6 +1,6 @@
 let monsterTurn = document.querySelector('#turn').getAttribute('data-turn'); //true = monster's turn
 let levelId = document.querySelector('#turn').getAttribute('data-l_id');
-
+let monster_left = document.querySelector('#turn').getAttribute('data-m_left');
 let damage;
 
 let monsterName = document
@@ -53,7 +53,7 @@ const playerTakesDamage = async (event) => {
         hitpoints: 0,
         is_dead: true,
       }),
-      heads: { 'Content-Type': 'application/json' },
+      headers: { 'Content-Type': 'application/json' },
     });
 
     if (response.ok) {
@@ -133,7 +133,20 @@ const playerDealsDmg = async (event) => {
 
     if (response.ok) {
       alert(`You defeated ${monsterName}!!`);
-      document.location.replace('/play/post'); //go to post battle screen
+      console.log('monsters left before change: ', monster_left)
+      monster_left--
+      console.log('monsters left after change: ', monster_left)
+      const response = await fetch(`/play/battle/levels_monster/${levelId}`, {
+        method: 'PUT',
+        body: JSON.stringify({
+          monster_left: monster_left
+        }),
+        headers: { 'Content-Type': 'application/json' }
+      })
+      if (response.ok) {
+        // console.log('check data');
+        document.location.replace('/play/post'); //go to post battle screen
+      }
     } else {
       alert('Something went wrong when killing monster');
       document.location.reload();

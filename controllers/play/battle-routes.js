@@ -108,4 +108,23 @@ router.put('/levels/:id', async (req, res) => {
   }
 });
 
+router.put('/levels_monster/:id', async (req, res) => {
+  try {
+    const dbLevelData = await Level.update(
+      {
+        monster_left: req.body.monster_left,
+      },
+      {
+        where: {
+          id: req.params.id,
+        },
+      }
+    );
+    res.status(200).json(dbLevelData);
+    // res.status(200).render('game_battle');
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 module.exports = router;
