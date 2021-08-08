@@ -168,7 +168,7 @@ async function init() {
   // If a current game is in process, then the continueGameImg should be displaying.
   // If so then create a new game, level, and monster
   // Then proceeds to the battle page
-  if (!continueGameImg) {
+  if (!continueImgEl) {
     await createNewGame();
     await createNewLevel();
     await createNewMonster();
@@ -197,5 +197,5 @@ if (bulbasaurEl) {
 
 const continueImgEl = document.querySelector('#continue_game');
 if (continueImgEl) {
-  continueGameImg.addEventListener('click', init);
+  continueImgEl.addEventListener('click', init);
 }
