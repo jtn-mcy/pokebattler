@@ -1,8 +1,10 @@
-{{!-- IF NO GAME IN PROGRESS --}}
-{{#unless game.isCurrent}}
-<div class="row d-flex flex-column">
-    <div class='col-2 container-fluid d-flex justify-content-center text-nowrap'>
-        <h3>Select a starter pokemon!</h3>
+{{! IF NO GAME IN PROGRESS }}
+{{#if game.isCurrent}}
+  <div class='row d-flex flex-column'>
+    <div
+      class='col-2 container-fluid d-flex justify-content-center text-nowrap'
+    >
+      <h3>Select a starter pokemon!</h3>
     </div>
     <div class='col-10 container-fluid'>
         <div class="row d-flex flex-row justify-content-around">
@@ -28,9 +30,14 @@
                 </div>
             </div>
         </div>
+      </div>
     </div>
-</div>
+  </div>
 {{else}}
-<img class="position-absolute top-50 start-50 translate-middle" src='/images/game_start_continue.png' id='continue_game'>
-{{/unless}}
+  <img
+    class='position-absolute top-50 start-50 translate-middle'
+    src='/images/game_start_continue.png'
+    id='continue_game'
+  />
+{{/if}}
 <script src='/js/play/start.js'></script>

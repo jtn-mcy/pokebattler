@@ -12,6 +12,10 @@ let picList = [
 
 let newIndex = Math.floor(Math.random() * picList.length);
 
+function goToGameStart() {
+  document.location.replace('/play/start');
+}
+
 document.querySelector('#login-splash').setAttribute('src', picList[newIndex]);
 
-// document.querySelector('#playBtn').addEventListener('click', gameStart);
+document.querySelector('#playBtn').addEventListener('click', goToGameStart);
