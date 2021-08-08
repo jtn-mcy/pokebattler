@@ -178,6 +178,16 @@ async function init() {
 
 init();
 
-document.querySelector('#charmander').addEventListener('click', addCharmander);
-document.querySelector('#squirtle').addEventListener('click', addSquirtle);
-document.querySelector('#bulbasaur').addEventListener('click', addBulbasaur);
+var charmanderEl = document.querySelector('#charmander');
+if (charmanderEl) {
+  charmanderEl.addEventListener('click', addCharmander);
+}
+var squirtleEl = document.querySelector('#squirtle');
+if (squirtleEl) {
+  squirtleEl.addEventListener('click', addSquirtle);
+}
+
+var bulbasaurEl = document.querySelector('#bulbasaur');
+if (bulbasaurEl) {
+  bulbasaurEl.addEventListener('click', addBulbasaur);
+}
