@@ -146,10 +146,12 @@ async function createNewMonster() {
   const response = await fetch('/api/monsters', {
     method: 'POST',
     body: JSON.stringify({
-      name: 'monster1',
-      description: 'desc1',
-      hitpoints: Math.floor(Math.random() * 20 + 55),
-      move_one: 'Slam',
+      name: 'Darkrai',
+      description: 'Dark',
+      hitpoints: Math.floor(Math.random() * 20 + 80),
+      move_one: 'tackle',
+      sprite:
+        'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/491.png',
       level_id: `${newLevelId}`,
     }),
     headers: { 'Content-Type': 'application/json' },
@@ -162,21 +164,11 @@ async function createNewMonster() {
   }
 }
 
-
-
 async function init() {
-  // If a current game is in process, then the continueGameImg should be displaying.
-  // If so then create a new game, level, and monster
-  // Then proceeds to the battle page
-  if (!continueGameImg) {
-    await createNewGame();
-    await createNewLevel();
-    await createNewMonster();
-    document.location.replace('/play/battle');
-  }
-    else {
-      document.location.replace('/play/battle');
-  }
+  await createNewGame();
+  await createNewLevel();
+  await createNewMonster();
+  document.location.replace('/play/battle');
 }
 
 init();
