@@ -1,10 +1,10 @@
-<div class="row m-1 d-flex justify-content-between background">
+<div class="row d-flex justify-content-between background" id='post-background'>
     <div class='col-2'>
         <img src='https://static.wikia.nocookie.net/pokemon/images/5/57/Red_FireRed_and_LeafGreen.png'>
     </div>
     <div class='col' id='tracker' data-game_id={{post.games.[0].id}} data-m_left={{level.monster_left}} data-score={{post.games.[0].score}} data-level_id={{level.id}}>
-        <div class="card background" style="width: 100%; min-height: 450px">
-           <img src={{pokemon.sprite}} class="card-img-top" alt=`{{pokemon.name}} style="width: 250px; height: 250px;">
+        <div class="card background mx-auto d-block" style="width: 100%; min-height: 450px">
+           <img src={{pokemon.sprite}} class="card-img-top mx-auto d-block" alt=`{{pokemon.name}} style="width: 250px; height: 250px;">
             <div class="card-body post-card">
                 <h5 class="card-title">Battle stats</h5>
                 <p class="card-text ">
@@ -13,11 +13,11 @@
                     <h5 class="card-title">Level details:</h5>
                     <strong>Monsters left:</strong> {{level.monster_left}} <br/>
                 </p>
+                <button type="button" class="btn btn-success d-flex flex-row-reverse" id='goNext'>Continue</button>
             </div>
         </div>
-        <button type="button" class="btn btn-success d-flex flex-row-reverse" id='goNext'>Continue</button>
     </div>
-    <div class='col-2 m-2'>
+    <div class='col-2'>
         <img src='https://static.wikia.nocookie.net/pokemon/images/0/01/Green_FireRed_and_LeafGreen.png'>
     </div>
 </div>

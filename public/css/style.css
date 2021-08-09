@@ -6,6 +6,12 @@
     --quarternary: #FFDE00;
     --gold: #B3A125;
     --background: #E8E2BD;
+    --color1: rgb(0, 231, 255);
+    --color2: rgb(255, 0, 231);
+}
+
+.body {
+    background-color: #201c24;
 }
 
 #pokebattle {
@@ -14,27 +20,31 @@
 }
 
 #nav {
-    background-color: var(--tertiary);
+    background: radial-gradient(circle, rgba(174,238,232,1) 0%, rgba(148,187,233,1) 100%);
 }
 
 .home-title {
-    background-color: var(--primary);
-    
+    background-color: #201c24;
+    padding: 20px;
     font-family: 'Press Start 2P', cursive;
 }
 
 .nav-link {
-    color: var(--gold);
+    color: #201c24;
     font-family: 'Press Start 2P', cursive;
 }
 
 .background {
-    background-color: var(--background);
+    background-color: #201c24;
     height: 100%;
 }
 
+.m-1, .m-2 {
+    margin: 2rem!important;
+}
+
 .card {
-    max-height: 600px;
+    max-height: 500px;
 }
 
 .card-text-white {
@@ -42,20 +52,27 @@
 }
 
 .card-char {
-    background-color: var(--secondary);
+    background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(255,0,0,1) 100%);
 }
 
 .card-squirt {
-    background-color: var(--tertiary);
+    background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(0,114,255,1) 100%);
 }
 
 .card-bulba {
-    background-color: var(--gold);
+    background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(59,184,38,1) 100%);
 }
 
 #creature-details {
-    background-color: var(--gold)
+    background: linear-gradient(0deg, #e3ffe7 0%, #d9e7ff 100%);
 }
+
+#creature-details:hover {
+    transform: translateY(-20px);
+    transition: 0.4s ease-out;
+    box-shadow: 
+    7px 7px 7px -7px #fff;
+}  
 
 #login-splash {
     max-width: 500px;
@@ -65,19 +82,32 @@
 #profile-card-body,
 #profile-no-pokemon,
 .post-card {
-    background-color: var(--quarternary);
+    background: linear-gradient(0deg, #e3ffe7 0%, #d9e7ff 100%);
 }
 
 .login-card {
-    max-width: 200px
+    max-width: 300px;
+    margin: 50px;
+    color: white;
 }
 
 .battle-pokemon {
-    background-color: var(--tertiary);
-    color: var(--quarternary)
+    background: linear-gradient(0deg, rgba(206,245,244,1) 0%, rgba(87,120,255,1) 100%);
 }
 
 .battle-monster {
-    background-color: var(--secondary);
-    color: var(--quarternary)
+    background: linear-gradient(0deg, rgba(219,199,178,1) 0%, rgba(182,25,25,1) 100%);
+}
+
+.white-text {
+    color: white;
+}
+
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+    margin-top: 0;
+    margin-bottom: -0.25rem;
+}
+
+#post-background {
+    padding: 50px;
 }
