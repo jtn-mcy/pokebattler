@@ -23,7 +23,7 @@ router.get('/', async (req, res) => {
   try {
     const dbBattleData = await User.findOne({
       where: {
-        username: 'user3',
+        id: req.session.user_id,
       },
       include: [
         {
