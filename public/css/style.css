@@ -33,7 +33,7 @@
     height: 100%;
 }
 
-.m-1 {
+.m-1, .m-2 {
     margin: 2rem!important;
 }
 
@@ -69,21 +69,32 @@
 #profile-card-body,
 #profile-no-pokemon,
 .post-card {
-    background-color: var(--quarternary);
+    background: linear-gradient(0deg, #e3ffe7 0%, #d9e7ff 100%);
 }
 
 .login-card {
-    max-width: 200px;
-    margin: 30px;
+    max-width: 300px;
+    margin: 50px;
     color: white;
 }
 
 .battle-pokemon {
-    background-color: var(--tertiary);
-    color: var(--quarternary)
+    background: linear-gradient(0deg, #1CB5E0 0%, #000851 100%);
 }
 
 .battle-monster {
-    background-color: var(--secondary);
-    color: var(--quarternary)
+    background: linear-gradient(0deg, #d53369 0%, #daae51 100%);
+}
+
+.white-text {
+    color: white;
+}
+
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+    margin-top: 0;
+    margin-bottom: -0.25rem;
+}
+
+#post-background {
+    padding: 50px;
 }
