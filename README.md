@@ -57,6 +57,15 @@ Then open the application in browser at http://localhost:3001/
 - [Javascript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 - [Node](https://nodejs.org/en/)
 - [NPM Packages](https://www.npmjs.com)
+    > bcrypt
+    > connect-session-sequelize
+    > dotenv
+    > express
+    > express-session
+    > handlebars
+    > mysql2
+    > sequelize
+    > nodemon
 - [GoogleFonts](https://fonts.google.com/)
 
 ## Features of Poke Battler
