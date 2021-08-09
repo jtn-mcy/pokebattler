@@ -8,6 +8,10 @@
     --background: #E8E2BD;
 }
 
+.body {
+    background-color: #201c24;
+}
+
 #pokebattle {
     text-decoration: none;
     color: var(--quarternary);
@@ -58,7 +62,7 @@
 }
 
 #creature-details {
-    background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(172,194,194,1) 100%);
+    background: linear-gradient(0deg, #e3ffe7 0%, #d9e7ff 100%);
 }
 
 #login-splash {
@@ -79,11 +83,11 @@
 }
 
 .battle-pokemon {
-    background: linear-gradient(0deg, #1CB5E0 0%, #000851 100%);
+    background: linear-gradient(0deg, rgba(206,245,244,1) 0%, rgba(87,120,255,1) 100%);
 }
 
 .battle-monster {
-    background: linear-gradient(0deg, #d53369 0%, #daae51 100%);
+    background: linear-gradient(0deg, rgba(219,199,178,1) 0%, rgba(182,25,25,1) 100%);
 }
 
 .white-text {

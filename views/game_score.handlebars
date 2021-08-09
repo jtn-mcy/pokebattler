@@ -1,8 +1,8 @@
-<div class="row d-flex justify-content-between background">
-    <div class='col-10'>
-        <div class="card post-card" style="width: 100%; min-height: 450px">
-           <img src={{pokemon.sprite}} class="card-img-top" alt=`{{pokemon.name}} data-p_id={{pokemon.id}} id='score-pokemon' style="width: 250px; height: 250px">
-            <div class="card-body">
+<div class="row d-flex justify-content-center text-center background">
+    <div class='col-5'>
+        <div class="m-2 card post-card" style="min-height: 450px">
+           <img src={{pokemon.sprite}} class="card-img-top mx-auto d-block" alt=`{{pokemon.name}} data-p_id={{pokemon.id}} id='score-pokemon' style="width: 250px; height: 250px">
+            <div class="card-body text-center">
                 <h5 class="card-title">Score screen</h5>
                 <p id='game_id' data-g_id={{post.games.[0].id}}>Game id: {{post.games.[0].id}}</p>
                 {{#if post.games.[0].beat_game}}
@@ -12,9 +12,7 @@
                 {{/if}}
             </div>
         </div>
-    </div>
-    <div class='col-2'>
-        <button href='/' type="button" class="btn btn-light d-flex flex-row-reverse" id='goHome'>Return home</button>
+        <button type="button" class="btn btn-light" id='goHome'>Return home</button>
     </div>
 </div>
 
