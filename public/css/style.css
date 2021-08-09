@@ -6,6 +6,8 @@
     --quarternary: #FFDE00;
     --gold: #B3A125;
     --background: #E8E2BD;
+    --color1: rgb(0, 231, 255);
+    --color2: rgb(255, 0, 231);
 }
 
 .body {
@@ -18,7 +20,7 @@
 }
 
 #nav {
-    background-color: var(--tertiary);
+    background: radial-gradient(circle, rgba(174,238,232,1) 0%, rgba(148,187,233,1) 100%);
 }
 
 .home-title {
@@ -28,7 +30,7 @@
 }
 
 .nav-link {
-    color: var(--gold);
+    color: #201c24;
     font-family: 'Press Start 2P', cursive;
 }
 
@@ -68,7 +70,9 @@
 #creature-details:hover {
     transform: translateY(-20px);
     transition: 0.4s ease-out;
-  }
+    box-shadow: 
+    7px 7px 7px -7px #fff;
+}  
 
 #login-splash {
     max-width: 500px;
