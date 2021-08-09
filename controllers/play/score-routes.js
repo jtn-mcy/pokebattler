@@ -56,6 +56,54 @@ router.get('/', async (req, res) => {
   }
 });
 
+router.get('/pokemons', async (req, res) => {
+  try {
+    const dbPokemonData = await Pokemon.findAll({
+      where: {
+        user_id: 1,
+        is_current: true
+      },
+    });
+
+    const pokemons = dbPokemonData.map((pokemon) => pokemon.get({ plain: true }));
+    // console.log(pokemons);
+    res.status(200).json(pokemons);
+    // console.log(dbPokemonData);
+  } catch (err) {
+    res.status(500).json(err);
+  };
+});
+
+router.get('/pokemons/:id', async (req, res) => {
+  try {
+    const dbPokemonData = await Pokemon.findByPk(req.params.id)
+
+    const pokemon = dbPokemonData.get({ plain: true });
+    console.log(pokemon);
+    res.status(200).json(pokemon);
+    // console.log(dbPokemonData);
+  } catch (err) {
+    res.status(500).json(err);
+  };
+});
+
+router.put('/pokemons/:id', async (req, res) => {
+  try {
+    const dbPokemonData = await Pokemon.update({
+        is_current: req.body.is_current,
+    },
+    {
+      where: {
+        id: req.params.id
+      }
+    });
+
+    res.status(200).json(dbPokemonData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 router.get('/game/:id', async (req, res) => {
   try{
     const dbGameData = await Game.findByPk(req.params.id);

@@ -25,7 +25,7 @@ Monster.init(
     },
     is_dead: {
       type: DataTypes.BOOLEAN,
-      allowNull: false,
+      defaultValue: false,
     },
     move_one: {
       type: DataTypes.STRING,

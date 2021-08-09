@@ -7,6 +7,8 @@ const levelId = document
   .getAttribute('data-level_id');
 let score = document.querySelector('#tracker').getAttribute('data-score');
 
+console.log('monsterTracker', monsterTracker);
+
 async function createMonster() {
   const response = await fetch('/api/monsters', {
     method: 'POST',
@@ -30,7 +32,7 @@ async function createMonster() {
 }
 
 const goNext = async () => {
-  if (monsterTracker === 0) {
+  if (monsterTracker <= 0) {
     score += 10;
     const response = await fetch(`/play/post/game/${gameId}`, {
       method: 'PUT',
