@@ -1,4 +1,4 @@
-<div class='row d-flex flex-wrap'>
+<div class='row d-flex flex-wrap background'>
     <div class='col-6 d-flex justify-content-center'>
         {{>pokemon-details}}
     </div>
@@ -6,5 +6,5 @@
          {{>monster-details}}
     </div>
 </div>
-<div id='turn' data-l_id={{level.id}} data-turn={{level.monsterTurn}}></div>
+<div id='turn' data-l_id={{level.id}} data-m_left= {{level.monster_left}} data-turn={{level.monsterTurn}}></div>
 <script src="/js/play/battle.js"></script>

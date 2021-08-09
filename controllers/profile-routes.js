@@ -3,24 +3,27 @@ const { Pokemon, Monster, Game, User, Level } = require('../models');
 
 router.get('/', async (req, res) => {
   try {
-    const profileData = await User.findAll({
+    console.log(req.session.user_id);
+    if (!req.session.user_id) {
+      res.render('home');
+      return;
+    }
+    const profileData = await User.findOne({
+      where: {
+        id: req.session.user_id
+      },
       include: [
-        // {
-        //   model: Level,
-        //   attributes: ['id'],
-        // },
         {
           model: Pokemon,
-          // attributes: ['name'],
         },
       ],
     });
 
-    const profile = profileData.map((profile) => profile.get({ plain: true }));
+    const profile = profileData.get({ plain: true });
 
     console.log(profile);
     res.render('profile', {
-      profile: profile,
+      profile: profile, loggedIn: req.session.loggedIn
     });
     // res.json(profileData);
   } catch (err) {

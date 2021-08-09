@@ -10,12 +10,19 @@
       integrity='sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC'
       crossorigin='anonymous'
     />
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link
+      href='https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap'
+      rel='stylesheet'
+    />
     <link rel='stylesheet' href='/css/style.css' />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.js" integrity="sha512-dMiBqqEV5i3KqpAdsgQSSZ72DnNib7otY0X+b/Tnn1EmLym1dxuZ19csdZqBnfDniKd9bmNtzStQzuMrIa5Ngw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> {{!-- import HowlerJs --}}
   </head>
   <body>
     <div class='jumbotron jumbotron-fluid text-center'>
-      <h1 class='display-4 home-title'><a id='pokebattle' href='/'>POKEBATTLE</a></h1>
+      <h1 class='display-4 home-title'><a
+          id='pokebattle'
+          href='/'
+        >POKEBATTLE</a></h1>
       <hr class='my-0' />
     </div>
     <ul class='nav d-flex justify-content-between' id='nav'>
@@ -33,17 +40,17 @@
       </li>
       <li class='nav-item'>
         {{#if loggedIn}}
-          <a
-            class='nav-link disabled'
-            href='#'
+          <button
+            class='nav-link'
+            {{! href='#' }}
             tabindex='-1'
             aria-disabled='true'
             id='logout'
-          >Logout</a>
+          >Logout</button>
           {{! Goes home if user logs out}}
         {{else}}
           <a
-            class='nav-link disabled'
+            class='nav-link'
             href='/login'
             tabindex='-1'
             aria-disabled='true'
@@ -60,10 +67,11 @@
       integrity='sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM'
       crossorigin='anonymous'
     ></script>
-    <script src='/js/main.js'></script>
+    {{! <script src='/js/main.js'></script> }}
     {{#if loggedIn}}
-      <script src='/js/logout.js'></script>
+      <script src='/js/menu/logout.js'></script>
     {{/if}}
-    <script src='/js/menu/profile.js'></script>
+    {{!-- <script src='/js/menu/profile.js'></script> --}}
+    <script src='/js/main.js'></script>
   </body>
 </html>

@@ -1,17 +1,25 @@
 <div class="row background">
     <div class="col-9" for="list of pokemon">
-        <div class="row d-flex justify-content-evenly">"
-        {{#each profile.[0].pokemons as |pokemon|}}
+        <div class="row d-flex justify-content-evenly">
+        {{#if profile.pokemons}}
+        {{#each profile.pokemons as |pokemon|}}
         {{>creature-details}} {{!-- Generate cards for each pokemon the user has--}}
         {{/each}}
+        {{else}}
+        <div class="card m-2" style="width: 18rem;" id='profile-no-pokemon'>
+            <div class="card-body">
+                <h3 class="card-title">{{profile.username}} currently has no pokemon!</h3>
+            </div>
+        </div>
+        {{/if}}
         </div>
     </div>
     <div class="col-3" style="max-height: 600px;"for="user stats">
         <div class='row'>
             <div class="card m-1" style="width: 18rem; background-color: var(--tertiary);">
-                <img src="https://static.wikia.nocookie.net/pokemon/images/5/57/Red_FireRed_and_LeafGreen.png" {{!-- Change url based on gender of user --}} class="card-img-top" alt="trainer">
-                <div class="card-body">
-                    <h5 class="card-title">{{profile.[0].username}}</h5>
+                <img src={{profile.avatar}} {{!-- Change url based on gender of user --}} class="card-img-top" alt="trainer">
+                <div class="card-body" id='profile-card-body'>
+                    <h5 class="card-title">{{profile.username}}</h5>
                     <p class="card-text">Some user stats</p>
                 </div>
             </div>

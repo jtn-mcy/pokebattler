@@ -34,9 +34,34 @@
 }
 
 .card {
-    max-height: 500px;
+    max-height: 600px;
 }
 
 #creature-details {
     background-color: var(--gold)
+}
+
+#login-splash {
+    max-width: 500px;
+    max-height: 500px;
+}
+
+#profile-card-body,
+#profile-no-pokemon,
+.post-card {
+    background-color: var(--quarternary);
+}
+
+.login-card {
+    max-width: 200px
+}
+
+.battle-pokemon {
+    background-color: var(--tertiary);
+    color: var(--quarternary)
+}
+
+.battle-monster {
+    background-color: var(--secondary);
+    color: var(--quarternary)
 }
