@@ -43,3 +43,18 @@ Don't forget to seed the data as well.
 ``` console
 npm run seed
 ```
+
+## Usage
+To use this application, type in terminal: 
+``` console
+npm run start
+```
+Then open the application in browser at http://localhost:3001/
+
+## Built With
+- [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML)
+- [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
+- [Javascript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+- [Node](https://nodejs.org/en/)
+- [NPM Packages](https://www.npmjs.com)
+- [GoogleFonts](https://fonts.google.com/)
