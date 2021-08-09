@@ -79,6 +79,8 @@ To see all the pokemon encountered, the user can click on the Pokedex to view th
 Here is the full game walkthrough:
 ![Game Demo](public/images/demo.gif)
 
+The deployed link: https://pokebattlerproject.herokuapp.com
+
 ## Contributors
 
 **Johnny Nguyen**
