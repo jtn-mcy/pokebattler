@@ -18,8 +18,8 @@
 }
 
 .home-title {
-    background-color: var(--primary);
-    
+    background-color: #201c24;
+    padding: 20px;
     font-family: 'Press Start 2P', cursive;
 }
 
@@ -29,12 +29,16 @@
 }
 
 .background {
-    background-color: var(--background);
+    background-color: #201c24;
     height: 100%;
 }
 
+.m-1 {
+    margin: 2rem!important;
+}
+
 .card {
-    max-height: 600px;
+    max-height: 500px;
 }
 
 .card-text-white {
@@ -42,19 +46,19 @@
 }
 
 .card-char {
-    background-color: var(--secondary);
+    background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(255,0,0,1) 100%);
 }
 
 .card-squirt {
-    background-color: var(--tertiary);
+    background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(0,114,255,1) 100%);
 }
 
 .card-bulba {
-    background-color: var(--gold);
+    background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(59,184,38,1) 100%);
 }
 
 #creature-details {
-    background-color: var(--gold)
+    background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(172,194,194,1) 100%);
 }
 
 #login-splash {
@@ -69,7 +73,9 @@
 }
 
 .login-card {
-    max-width: 200px
+    max-width: 200px;
+    margin: 30px;
+    color: white;
 }
 
 .battle-pokemon {
