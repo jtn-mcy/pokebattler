@@ -33,7 +33,7 @@ const cutSound = new Howl ({
 // faintSound.play();
 
 const playerTakesDamage = async (event) => {
-  damage = Math.floor(Math.random() * 11); //deals a range of 0-10 damage
+  damage = Math.floor(Math.random() * 40); //deals a range of 0-10 damage
 
   let newPokemonHp = pokemonHp - damage;
   console.log(
@@ -185,7 +185,7 @@ const playerDealsDmg = async (event) => {
 
 moveList = {
   tackle: {
-    strength: '40',
+    strength: '50',
   },
 };
 

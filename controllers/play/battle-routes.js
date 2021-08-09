@@ -12,21 +12,31 @@ router.get('/', async (req, res) => {
       include: [
         {
           model: Pokemon,
+          where: {
+            is_current: true,
+          }
         },
+
         {
           model: Game,
           where: {
             isCurrent: true,
           },
-          include: {
-            model: Level,
-            include: {
-              model: Monster,
-              where: {
-                is_dead: false,
-              },
+          include: [
+            {
+              model: Level,
+              include: [
+
+                  {
+                  model: Monster,
+                  where: {
+                    is_dead: false,
+                   },
+                  },
+
+              ],
             },
-          },
+          ],
         },
       ],
     });
@@ -38,7 +48,7 @@ router.get('/', async (req, res) => {
     const level = post.games[0].levels[0]; //getting active level
     const monster = level.monsters[0]; //getting active monster
     // res.status(200).json({post, level, monster});
-    // console.log('level', level);
+    console.log('level', { post, pokemon, level, monster });
     res.status(200).render('game_battle', { post, pokemon, level, monster });
   } catch (err) {
     console.log(err);

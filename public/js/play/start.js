@@ -1,5 +1,4 @@
-//User will choose a pokemon to start off with
-//Once chosen, a new pokemon will be posted into the pokemon database using the user's req.session.id
+//User will choose a pokemon to start off with//Once chosen, a new pokemon will be posted into the pokemon database using the user's req.session.id
 
 // This variable contains the id of the newly created game and is used to create a new level.
 var newGameId;
@@ -122,7 +121,7 @@ async function createNewLevel() {
     method: 'POST',
     body: JSON.stringify({
       location: 'location1',
-      monster_left: 5,
+      monster_left: Math.floor(Math.random()*3+1),
       monsterTurn: false,
       game_id: `${newGameId}`,
     }),
@@ -148,6 +147,7 @@ async function createNewMonster() {
     body: JSON.stringify({
       name: 'Darkrai',
       description: 'Dark',
+      is_dead: false,
       hitpoints: Math.floor(Math.random() * 20 + 80),
       move_one: 'tackle',
       sprite:
@@ -165,30 +165,30 @@ async function createNewMonster() {
 }
 
 async function init() {
-  await createNewGame();
-  await createNewLevel();
-  await createNewMonster();
+  if (!continueGameImg) {
+    await createNewGame();
+    await createNewLevel();
+    await createNewMonster();
+  }
 }
 
-const charmanderEl = document.querySelector('#charmander');
+var charmanderEl = document.querySelector('#charmander');
 if (charmanderEl) {
   charmanderEl.addEventListener('click', addCharmander);
 }
-const squirtleEl = document.querySelector('#squirtle');
+var squirtleEl = document.querySelector('#squirtle');
 if (squirtleEl) {
   squirtleEl.addEventListener('click', addSquirtle);
 }
 
-const bulbasaurEl = document.querySelector('#bulbasaur');
+var bulbasaurEl = document.querySelector('#bulbasaur');
 if (bulbasaurEl) {
   bulbasaurEl.addEventListener('click', addBulbasaur);
 }
 
-const continueGameImg = document.querySelector('#continue_game');
+var continueGameImg = document.querySelector('#continue_game');
 if (continueGameImg) {
-  continueGameImg.addEventListener(
-    'click',
-    document.location.replace('/play/battle')
+  continueGameImg.addEventListener('click', () => {document.location.replace('/play/battle')}
   );
 }
 

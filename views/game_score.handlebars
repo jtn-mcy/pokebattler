@@ -1,11 +1,11 @@
 <div class="row m-1 d-flex justify-content-between background">
     <div class='col-10'>
         <div class="card post-card" style="width: 100%; min-height: 450px">
-           <img src={{pokemon.sprite}} class="card-img-top" alt=`{{pokemon.name}} style="width: 250px; height: 250px">
+           <img src={{pokemon.sprite}} class="card-img-top" alt=`{{pokemon.name}} data-p_id={{pokemon.id}} id='score-pokemon' style="width: 250px; height: 250px">
             <div class="card-body">
                 <h5 class="card-title">Score screen</h5>
                 <p id='game_id' data-g_id={{post.games.[0].id}}>Game id: {{post.games.[0].id}}</p>
-                {{#if game.beat_game}}
+                {{#if post.games.[0].beat_game}}
                 <p class="card-text">You beat Pokebattle!</p>
                 {{else}}
                 <p class="card-text">You've been defeated..</p>
