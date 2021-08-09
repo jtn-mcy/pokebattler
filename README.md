@@ -61,6 +61,20 @@ Then open the application in browser at http://localhost:3001/
 - [GoogleFonts](https://fonts.google.com/)
 
 ## Features of Poke Battler
+The user is able to sign up or login to play. A pokemon trainer profile is then rendered for the user.
+![Sign Up](public/images/signup.gif)
+
+Once a profile is created, the user can begin battling monsters! The user can choose 1 of the 3 starter pokemon to fight the monster.
+![Battle](public/images/battle.gif)
+
+If the user wants to exit during the game, their data will be saved when they come back. 
+![Exit Mid-game](public/images/exit_midgame.gif)
+
+Once the user defeats the monster, they will be brought to the victory page, where it displays the stats and plays a victory tune. Otherwise, it leads to the defeat page.
+![Victory](public/images/victory.gif)
+
+To see all the pokemon encountered, the user can click on the Pokedex to view them.
+![Pokedex](public/images/pokedex.gif)
 
 ## Page Demo
 
