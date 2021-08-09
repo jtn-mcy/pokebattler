@@ -37,6 +37,22 @@
     max-height: 600px;
 }
 
+.card-text-white {
+    color:white
+}
+
+.card-char {
+    background-color: var(--secondary);
+}
+
+.card-squirt {
+    background-color: var(--tertiary);
+}
+
+.card-bulba {
+    background-color: var(--gold);
+}
+
 #creature-details {
     background-color: var(--gold)
 }

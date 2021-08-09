@@ -16,7 +16,7 @@ async function createMonster() {
       name: 'Darkrai',
       description: 'Dark',
       hitpoints: Math.floor(Math.random() * 20 + 80),
-      move_one: 'tackle',
+      move_one: 'forboding slice',
       sprite:
         'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/491.png',
       level_id: `${levelId}`,
