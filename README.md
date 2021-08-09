@@ -58,3 +58,28 @@ Then open the application in browser at http://localhost:3001/
 - [Node](https://nodejs.org/en/)
 - [NPM Packages](https://www.npmjs.com)
 - [GoogleFonts](https://fonts.google.com/)
+
+## Features of Poke Battler
+
+## Page Demo
+
+![Page Demo](readme_assets/)
+
+## Contributors
+
+**Johnny Nguyen**
+
+- [Portfolio](https://nguyenjohnnyt.github.io/)
+- [Github](https://github.com/NguyenJohnnyT)
+
+**Huiran Lin**
+
+- [Portfolio](https://hugh18019.github.io/Portfolio/)
+- [Github](https://github.com/hugh18019)
+
+**Samantha Yuhan**
+
+- [Portfolio](https://samyuhan.github.io/portfolio/)
+- [Github](https://github.com/samyuhan)
+
+## Medium Blog Posts
