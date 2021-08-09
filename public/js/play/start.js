@@ -188,7 +188,7 @@ if (bulbasaurEl) {
 
 var continueGameImg = document.querySelector('#continue_game');
 if (continueGameImg) {
-  continueGameImg.addEventListener('click', document.location.replace('/play/battle')
+  continueGameImg.addEventListener('click', () => {document.location.replace('/play/battle')}
   );
 }
 
