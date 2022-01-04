@@ -1,4 +1,5 @@
 const path = require('path'); //guide express.static to public folder
+// const compression = require('compression');
 const express = require('express'); //express server
 const session = require('express-session'); //import express-session
 const exphbs = require('express-handlebars'); // import express-handlebars
@@ -12,6 +13,8 @@ const SequelizeStore = require('connect-session-sequelize')(session.Store); //st
 
 const app = express();
 const PORT = process.env.PORT || 3001;
+
+// app.use(compression());
 
 const sess = {
   //session
